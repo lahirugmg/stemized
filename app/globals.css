@@ -1,43 +1,50 @@
 :root {
-  --bg: #0b1020;
-  --card: #0f152b;
-  --muted: #b7c0d6;
-  --text: #e7ecf7;
-  --brand: #6aa6ff;
-  --accent: #7ee787;
-  --warning: #ffcc66;
+  /* Base palette: light blue + light gray + white */
+  --bg: #f7fafc;              /* page background */
+  --card: #ffffff;            /* surfaces/cards */
+  --surface: #f1f5f9;         /* subtle surface (tracks, chips) */
+  --border: #e2e8f0;          /* light gray border */
+  --muted: #475569;           /* slate-600 for body text */
+  --text: #0f172a;            /* slate-900 for headings and main text */
 
-  /* Theme colors */
+  --brand: #3b82f6;           /* blue-500 */
+  --brand-soft: #dbeafe;      /* blue-100/200 */
+  --accent: #10b981;          /* emerald-500 */
+  --accent-soft: #d1fae5;     /* emerald-100 */
+  --warning: #f59e0b;         /* amber-500 */
+  --warning-soft: #fef3c7;    /* amber-100 */
+
+  /* Theme colors (kept for area accents) */
   --math-primary: #ff6b6b;
   --math-secondary: #ff8e8e;
-  --math-bg: rgba(255, 107, 107, 0.1);
+  --math-bg: rgba(255, 107, 107, 0.08);
 
   --data-primary: #4ecdc4;
   --data-secondary: #7dd3c0;
-  --data-bg: rgba(78, 205, 196, 0.1);
+  --data-bg: rgba(78, 205, 196, 0.08);
 
   --science-primary: #45b7d1;
   --science-secondary: #6cc7e0;
-  --science-bg: rgba(69, 183, 209, 0.1);
+  --science-bg: rgba(69, 183, 209, 0.08);
 
   --coding-primary: #96ceb4;
   --coding-secondary: #b0d8c5;
-  --coding-bg: rgba(150, 206, 180, 0.1);
+  --coding-bg: rgba(150, 206, 180, 0.08);
 }
 
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
 body {
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, Apple Color Emoji, Segoe UI Emoji;
-  background: linear-gradient(180deg, #0b1020, #0c1227 40%, #0b1124);
+  background: linear-gradient(180deg, #ffffff, #f7fbff 40%, #f2f6fb);
   color: var(--text);
   min-height: 100vh;
 }
 
 .container { max-width: 960px; margin: 0 auto; padding: 1rem; }
-.site-header { border-bottom: 1px solid #1b2342; position: sticky; top: 0; backdrop-filter: blur(8px); background: rgba(11,16,32,0.7); z-index: 10; }
+.site-header { border-bottom: 1px solid var(--border); position: sticky; top: 0; backdrop-filter: blur(8px); background: rgba(255,255,255,0.75); z-index: 10; }
 .brand { color: var(--text); text-decoration: none; font-weight: 700; letter-spacing: 0.5px; }
-.site-footer { border-top: 1px solid #1b2342; margin-top: 3rem; padding: 1rem 0; color: var(--muted); font-size: 0.9rem; }
+.site-footer { border-top: 1px solid var(--border); margin-top: 3rem; padding: 1rem 0; color: var(--muted); font-size: 0.9rem; }
 
 h1 { font-size: 1.8rem; margin: 1rem 0; }
 h2 { font-size: 1.2rem; margin: 0.5rem 0; }
@@ -99,9 +106,9 @@ p { color: var(--muted); line-height: 1.6; }
   position: relative;
   overflow: hidden;
 }
-.card { background: var(--card); border: 1px solid #1b2342; border-radius: 12px; padding: 1rem; }
+.card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1rem; }
 .card.hover { transition: transform 120ms ease, border-color 120ms ease; }
-.card.hover:hover { transform: translateY(-2px); border-color: #2a3769; }
+.card.hover:hover { transform: translateY(-2px); border-color: #cbd5e1; }
 
 /* Theme-specific card styles */
 [data-theme="math"] .card { border-left: 4px solid var(--math-primary); }
@@ -127,7 +134,7 @@ p { color: var(--muted); line-height: 1.6; }
 }
 
 .tags { display: flex; gap: 0.5rem; margin: 0.5rem 0 0.75rem; flex-wrap: wrap; }
-.tag { font-size: 0.75rem; padding: 0.2rem 0.5rem; border-radius: 999px; background: #0b1b3d; color: #a7bee8; border: 1px solid #1b2a55; }
+.tag { font-size: 0.75rem; padding: 0.2rem 0.5rem; border-radius: 999px; background: var(--brand-soft); color: var(--brand); border: 1px solid var(--border); }
 
 /* Enhanced tag styles with animations */
 .tag {
@@ -141,18 +148,18 @@ p { color: var(--muted); line-height: 1.6; }
 }
 
 /* Solid tag color variations */
-.tags .tag:nth-child(8n+1){ background: #667eea; color: white; border-color: #667eea; }
-.tags .tag:nth-child(8n+2){ background: #f093fb; color: white; border-color: #f093fb; }
-.tags .tag:nth-child(8n+3){ background: #4facfe; color: white; border-color: #4facfe; }
-.tags .tag:nth-child(8n+4){ background: #43e97b; color: white; border-color: #43e97b; }
-.tags .tag:nth-child(8n+5){ background: #fa709a; color: white; border-color: #fa709a; }
-.tags .tag:nth-child(8n+6){ background: #a8edea; color: #333; border-color: #a8edea; }
-.tags .tag:nth-child(8n+7){ background: #ff9a9e; color: #333; border-color: #ff9a9e; }
-.tags .tag:nth-child(8n+8){ background: #ffecd2; color: #333; border-color: #ffecd2; }
+.tags .tag:nth-child(8n+1){ background: #e0e7ff; color: #3730a3; border-color: #c7d2fe; }
+.tags .tag:nth-child(8n+2){ background: #e9d5ff; color: #6b21a8; border-color: #d8b4fe; }
+.tags .tag:nth-child(8n+3){ background: #dbeafe; color: #1d4ed8; border-color: #bfdbfe; }
+.tags .tag:nth-child(8n+4){ background: #dcfce7; color: #065f46; border-color: #bbf7d0; }
+.tags .tag:nth-child(8n+5){ background: #ffe4e6; color: #9f1239; border-color: #fecdd3; }
+.tags .tag:nth-child(8n+6){ background: #ccfbf1; color: #115e59; border-color: #99f6e4; }
+.tags .tag:nth-child(8n+7){ background: #fde68a; color: #92400e; border-color: #fcd34d; }
+.tags .tag:nth-child(8n+8){ background: #f1f5f9; color: #0f172a; border-color: #e2e8f0; }
 
-.btn { display: inline-block; padding: 0.6rem 0.9rem; border-radius: 10px; border: 1px solid #2a3769; color: var(--text); text-decoration: none; background: #0b1b3d; }
-.btn.primary { background: #123573; border-color: #2b61c9; }
-.btn.success { background: #0c3b2a; border-color: #167a4e; }
+.btn { display: inline-block; padding: 0.6rem 0.9rem; border-radius: 10px; border: 1px solid var(--border); color: var(--text); text-decoration: none; background: var(--surface); }
+.btn.primary { background: var(--brand); border-color: var(--brand); color: #ffffff; }
+.btn.success { background: var(--accent); border-color: var(--accent); color: #ffffff; }
 .btn.disabled { opacity: 0.5; pointer-events: none; }
 .btn + .btn { margin-left: 0.5rem; }
 
@@ -164,35 +171,32 @@ p { color: var(--muted); line-height: 1.6; }
   font-weight: 500;
 }
 
-.btn:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-}
+.btn:hover { transform: translateY(-1px); box-shadow: 0 2px 10px rgba(15, 23, 42, 0.06); }
 
 .btn:active {
   transform: translateY(0);
 }
 
 /* Theme-specific button colors */
-[data-theme="math"] .btn.primary { background: var(--math-primary); border-color: var(--math-primary); }
-[data-theme="data"] .btn.primary { background: var(--data-primary); border-color: var(--data-primary); }
-[data-theme="science"] .btn.primary { background: var(--science-primary); border-color: var(--science-primary); }
-[data-theme="coding"] .btn.primary { background: var(--coding-primary); border-color: var(--coding-primary); }
+[data-theme="math"] .btn.primary { background: var(--math-primary); border-color: var(--math-primary); color: #fff; }
+[data-theme="data"] .btn.primary { background: var(--data-primary); border-color: var(--data-primary); color: #003; }
+[data-theme="science"] .btn.primary { background: var(--science-primary); border-color: var(--science-primary); color: #003; }
+[data-theme="coding"] .btn.primary { background: var(--coding-primary); border-color: var(--coding-primary); color: #003; }
 
 .actions { margin-top: 0.75rem; }
 
 .crumbs { display: flex; align-items: center; gap: 0.5rem; color: var(--muted); font-size: 0.95rem; }
-.crumbs a { color: #a7bee8; text-decoration: none; }
+.crumbs a { color: var(--brand); text-decoration: none; }
 .crumbs span { opacity: 0.7; }
 
 .lesson { margin-top: 0.5rem; display: grid; gap: 1rem; }
-.lesson .lede { color: #cbd6ef; }
+.lesson .lede { color: #334155; }
 
 /* Animated progress indicator */
 .progress-container {
   position: relative;
   height: 4px;
-  background: rgba(255, 255, 255, 0.1);
+  background: #e5e7eb;
   border-radius: 2px;
   overflow: hidden;
   margin: 1rem 0;
@@ -225,22 +229,22 @@ p { color: var(--muted); line-height: 1.6; }
 
 .list { margin: 1rem 0; padding-left: 1.25rem; }
 .list-item { margin: 0.4rem 0; }
-.list-item a { color: #a7bee8; text-decoration: none; }
+.list-item a { color: var(--brand); text-decoration: none; }
 
 /* Highlight */
-mark { background: rgba(106,166,255,0.25); color: #e7ecf7; padding: 0 0.2rem; border-radius: 4px; }
+mark { background: #e6f0ff; color: var(--text); padding: 0 0.2rem; border-radius: 4px; }
 
 /* Callouts */
-.callout { border: 1px solid #2a3769; border-left-width: 4px; padding: 0.75rem; border-radius: 10px; background: #0b1b3d; }
+.callout { border: 1px solid var(--border); border-left-width: 4px; padding: 0.75rem; border-radius: 10px; background: var(--surface); }
 .callout .callout-title { font-weight: 700; margin-bottom: 0.25rem; }
-.callout.info { border-left-color: #2b61c9; background: rgba(18,53,115,0.35); }
-.callout.success { border-left-color: #167a4e; background: rgba(12,59,42,0.35); }
-.callout.warn { border-left-color: #ffcc66; background: rgba(140,98,0,0.25); }
-.callout.tip { border-left-color: #7ee787; background: rgba(24,70,49,0.35); }
+.callout.info { border-left-color: var(--brand); background: var(--brand-soft); }
+.callout.success { border-left-color: var(--accent); background: var(--accent-soft); }
+.callout.warn { border-left-color: var(--warning); background: var(--warning-soft); }
+.callout.tip { border-left-color: var(--accent); background: var(--accent-soft); }
 
 /* Fun tag palette variations */
-.tags .tag:nth-child(5n+1){ background:#132a4a; color:#b7d0ff; border-color:#274979 }
-.tags .tag:nth-child(5n+2){ background:#2a1b4a; color:#e1b7ff; border-color:#51347a }
-.tags .tag:nth-child(5n+3){ background:#1b4a2a; color:#b7ffd6; border-color:#2f7a4a }
-.tags .tag:nth-child(5n+4){ background:#4a2a1b; color:#ffd6b7; border-color:#7a4a2f }
-.tags .tag:nth-child(5n+5){ background:#0b1b3d; color:#a7bee8; border-color:#1b2a55 }
+.tags .tag:nth-child(5n+1){ background:#e0f2fe; color:#075985; border-color:#bae6fd }
+.tags .tag:nth-child(5n+2){ background:#fef3c7; color:#92400e; border-color:#fde68a }
+.tags .tag:nth-child(5n+3){ background:#dcfce7; color:#065f46; border-color:#bbf7d0 }
+.tags .tag:nth-child(5n+4){ background:#ede9fe; color:#5b21b6; border-color:#ddd6fe }
+.tags .tag:nth-child(5n+5){ background:#f1f5f9; color:#0f172a; border-color:#e2e8f0 }

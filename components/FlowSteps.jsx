@@ -14,9 +14,8 @@ export default function FlowSteps({ title = 'From Data to Value', steps = [] }) 
 function Step({ label, isLast }) {
   return (
     <div style={{ display:'flex', alignItems:'center', gap:'0.5rem' }}>
-      <div style={{ padding:'0.35rem 0.7rem', border:'1px solid #2a3769', borderRadius:999, background:'#0b1b3d' }}>{label}</div>
+      <div style={{ padding:'0.35rem 0.7rem', border:'1px solid var(--border)', borderRadius:999, background:'var(--surface)' }}>{label}</div>
       {!isLast && <span style={{ opacity:0.7 }}>→</span>}
     </div>
   )
 }
-
