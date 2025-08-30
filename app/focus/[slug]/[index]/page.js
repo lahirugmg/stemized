@@ -15,6 +15,9 @@ import LessonProgress from '../../../../components/LessonProgress'
 import OrderList from '../../../../components/OrderList'
 import Flashcards from '../../../../components/Flashcards'
 import ShortAnswer from '../../../../components/ShortAnswer'
+import ConceptHighlighter from '../../../../components/ConceptHighlighter'
+import Callout from '../../../../components/Callout'
+import Reveal from '../../../../components/Reveal'
 
 export function generateStaticParams() {
   // Optional pre-rendering; safe to leave empty in dev.
@@ -62,13 +65,23 @@ export default function LessonPage({ params }) {
         )}
         <div className="card">
           <h2>Concept</h2>
-          <p>{lesson.concept}</p>
+          {lesson.keywords ? (
+            <ConceptHighlighter text={lesson.concept} keywords={lesson.keywords} />
+          ) : (
+            <p>{lesson.concept}</p>
+          )}
         </div>
 
         <div className="card">
           <h2>Try it</h2>
           <p>{lesson.exercise}</p>
         </div>
+
+        {lesson.solution && (
+          <Reveal label="Show sample solution">
+            {lesson.solution}
+          </Reveal>
+        )}
 
         {/* Optional visual/interactive blocks */}
         {lesson.timeline && (
@@ -127,6 +140,14 @@ export default function LessonPage({ params }) {
             items={lesson.categorize.items}
             solution={lesson.categorize.solution}
           />
+        )}
+
+        {lesson.callouts && lesson.callouts.length > 0 && (
+          <div style={{ display:'grid', gap:'0.5rem' }}>
+            {lesson.callouts.map((c, i) => (
+              <Callout key={i} type={c.type} title={c.title}>{c.body}</Callout>
+            ))}
+          </div>
         )}
 
         {lesson.order && (

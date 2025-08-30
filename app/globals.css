@@ -56,3 +56,20 @@ p { color: var(--muted); line-height: 1.6; }
 .list-item { margin: 0.4rem 0; }
 .list-item a { color: #a7bee8; text-decoration: none; }
 
+/* Highlight */
+mark { background: rgba(106,166,255,0.25); color: #e7ecf7; padding: 0 0.2rem; border-radius: 4px; }
+
+/* Callouts */
+.callout { border: 1px solid #2a3769; border-left-width: 4px; padding: 0.75rem; border-radius: 10px; background: #0b1b3d; }
+.callout .callout-title { font-weight: 700; margin-bottom: 0.25rem; }
+.callout.info { border-left-color: #2b61c9; background: rgba(18,53,115,0.35); }
+.callout.success { border-left-color: #167a4e; background: rgba(12,59,42,0.35); }
+.callout.warn { border-left-color: #ffcc66; background: rgba(140,98,0,0.25); }
+.callout.tip { border-left-color: #7ee787; background: rgba(24,70,49,0.35); }
+
+/* Fun tag palette variations */
+.tags .tag:nth-child(5n+1){ background:#132a4a; color:#b7d0ff; border-color:#274979 }
+.tags .tag:nth-child(5n+2){ background:#2a1b4a; color:#e1b7ff; border-color:#51347a }
+.tags .tag:nth-child(5n+3){ background:#1b4a2a; color:#b7ffd6; border-color:#2f7a4a }
+.tags .tag:nth-child(5n+4){ background:#4a2a1b; color:#ffd6b7; border-color:#7a4a2f }
+.tags .tag:nth-child(5n+5){ background:#0b1b3d; color:#a7bee8; border-color:#1b2a55 }
