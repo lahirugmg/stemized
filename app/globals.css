@@ -6,6 +6,23 @@
   --brand: #6aa6ff;
   --accent: #7ee787;
   --warning: #ffcc66;
+
+  /* Theme colors */
+  --math-primary: #ff6b6b;
+  --math-secondary: #ff8e8e;
+  --math-bg: rgba(255, 107, 107, 0.1);
+
+  --data-primary: #4ecdc4;
+  --data-secondary: #7dd3c0;
+  --data-bg: rgba(78, 205, 196, 0.1);
+
+  --science-primary: #45b7d1;
+  --science-secondary: #6cc7e0;
+  --science-bg: rgba(69, 183, 209, 0.1);
+
+  --coding-primary: #96ceb4;
+  --coding-secondary: #b0d8c5;
+  --coding-bg: rgba(150, 206, 180, 0.1);
 }
 
 * { box-sizing: border-box; }
@@ -26,19 +43,141 @@ h1 { font-size: 1.8rem; margin: 1rem 0; }
 h2 { font-size: 1.2rem; margin: 0.5rem 0; }
 p { color: var(--muted); line-height: 1.6; }
 
-.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; margin-top: 1rem; }
+.main-page {
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero {
+  margin-bottom: 3rem;
+  padding: 2rem 0;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+.hero p {
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+  color: var(--text);
+  opacity: 0.9;
+}
+
+/* Enhanced grid animations */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.grid > * {
+  animation: fadeInUp 0.4s ease-out forwards;
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.grid > *:nth-child(1) { animation-delay: 0.05s; }
+.grid > *:nth-child(2) { animation-delay: 0.1s; }
+.grid > *:nth-child(3) { animation-delay: 0.15s; }
+.grid > *:nth-child(4) { animation-delay: 0.2s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Interactive focus cards */
+.focus-card {
+  position: relative;
+  overflow: hidden;
+}
 .card { background: var(--card); border: 1px solid #1b2342; border-radius: 12px; padding: 1rem; }
 .card.hover { transition: transform 120ms ease, border-color 120ms ease; }
 .card.hover:hover { transform: translateY(-2px); border-color: #2a3769; }
 
+/* Theme-specific card styles */
+[data-theme="math"] .card { border-left: 4px solid var(--math-primary); }
+[data-theme="data"] .card { border-left: 4px solid var(--data-primary); }
+[data-theme="science"] .card { border-left: 4px solid var(--science-primary); }
+[data-theme="coding"] .card { border-left: 4px solid var(--coding-primary); }
+
+/* Interactive card animations */
+.card.interactive {
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card.interactive:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card.interactive:active {
+  transform: translateY(0);
+}
+
 .tags { display: flex; gap: 0.5rem; margin: 0.5rem 0 0.75rem; flex-wrap: wrap; }
 .tag { font-size: 0.75rem; padding: 0.2rem 0.5rem; border-radius: 999px; background: #0b1b3d; color: #a7bee8; border: 1px solid #1b2a55; }
+
+/* Enhanced tag styles with animations */
+.tag {
+  transition: all 0.2s ease;
+  cursor: default;
+  position: relative;
+}
+
+.tag:hover {
+  transform: scale(1.02);
+}
+
+/* Solid tag color variations */
+.tags .tag:nth-child(8n+1){ background: #667eea; color: white; border-color: #667eea; }
+.tags .tag:nth-child(8n+2){ background: #f093fb; color: white; border-color: #f093fb; }
+.tags .tag:nth-child(8n+3){ background: #4facfe; color: white; border-color: #4facfe; }
+.tags .tag:nth-child(8n+4){ background: #43e97b; color: white; border-color: #43e97b; }
+.tags .tag:nth-child(8n+5){ background: #fa709a; color: white; border-color: #fa709a; }
+.tags .tag:nth-child(8n+6){ background: #a8edea; color: #333; border-color: #a8edea; }
+.tags .tag:nth-child(8n+7){ background: #ff9a9e; color: #333; border-color: #ff9a9e; }
+.tags .tag:nth-child(8n+8){ background: #ffecd2; color: #333; border-color: #ffecd2; }
 
 .btn { display: inline-block; padding: 0.6rem 0.9rem; border-radius: 10px; border: 1px solid #2a3769; color: var(--text); text-decoration: none; background: #0b1b3d; }
 .btn.primary { background: #123573; border-color: #2b61c9; }
 .btn.success { background: #0c3b2a; border-color: #167a4e; }
 .btn.disabled { opacity: 0.5; pointer-events: none; }
 .btn + .btn { margin-left: 0.5rem; }
+
+/* Enhanced button interactions */
+.btn {
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+  font-weight: 500;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+/* Theme-specific button colors */
+[data-theme="math"] .btn.primary { background: var(--math-primary); border-color: var(--math-primary); }
+[data-theme="data"] .btn.primary { background: var(--data-primary); border-color: var(--data-primary); }
+[data-theme="science"] .btn.primary { background: var(--science-primary); border-color: var(--science-primary); }
+[data-theme="coding"] .btn.primary { background: var(--coding-primary); border-color: var(--coding-primary); }
 
 .actions { margin-top: 0.75rem; }
 
@@ -48,6 +187,38 @@ p { color: var(--muted); line-height: 1.6; }
 
 .lesson { margin-top: 0.5rem; display: grid; gap: 1rem; }
 .lesson .lede { color: #cbd6ef; }
+
+/* Animated progress indicator */
+.progress-container {
+  position: relative;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+  margin: 1rem 0;
+}
+
+.progress-bar {
+  height: 100%;
+  background: var(--brand);
+  border-radius: 2px;
+  transition: width 0.5s ease;
+}
+
+/* Pulse animation for important elements */
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+}
+
+.pulse {
+  animation: pulse 1.5s infinite;
+}
+
+/* Color transition effects */
+.color-transition {
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
 
 .nav { display: flex; align-items: center; margin-top: 0.5rem; }
 .nav .spacer { flex: 1; }

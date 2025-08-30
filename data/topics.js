@@ -4,6 +4,8 @@ export const focusAreas = [
     title: 'Math Foundations',
     description: 'Key math building blocks, one small concept at a time.',
     tags: ['Algebra', 'Numbers', 'Geometry'],
+    color: '#ff6b6b',
+    theme: 'math',
     lessons: [
       {
         title: 'Order of Operations (PEMDAS)',
@@ -36,6 +38,8 @@ export const focusAreas = [
     title: 'Data Mining',
     description: 'Master core concepts through interactive visualizations and hands-on practice.',
     tags: ['Data Mining', 'Data Types', 'Attributes', 'Preprocessing', 'Similarity', 'Distance', 'Dimensionality', 'Correlation'],
+    color: '#4ecdc4',
+    theme: 'data',
     modules: [
       {
         slug: 'core-concepts',
@@ -614,6 +618,8 @@ export const focusAreas = [
     title: 'Science Essentials',
     description: 'Core ideas from physics and biology, made bite-sized.',
     tags: ['Physics', 'Biology'],
+    color: '#45b7d1',
+    theme: 'science',
     lessons: [
       {
         title: 'Newton\'s First Law',
@@ -638,6 +644,8 @@ export const focusAreas = [
     title: 'Coding Basics',
     description: 'Start programming by mastering a few core patterns.',
     tags: ['Logic', 'Algorithms'],
+    color: '#96ceb4',
+    theme: 'coding',
     lessons: [
       {
         title: 'Variables and Types',

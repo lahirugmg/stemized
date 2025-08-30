@@ -44,7 +44,7 @@ export default function LessonPage({ params }) {
   const hasNext = idx < area.lessons.length - 1
 
   return (
-    <section>
+    <section data-theme={area.theme}>
       <div className="crumbs">
         <Link href="/">Home</Link>
         <span>/</span>
@@ -58,12 +58,12 @@ export default function LessonPage({ params }) {
         <p className="lede">{lesson.summary}</p>
         <LessonProgress areaSlug={area.slug} index={idx} />
         {lesson.story && (
-          <div className="card">
+          <div className="card interactive">
             <h2>Story</h2>
             <p>{lesson.story}</p>
           </div>
         )}
-        <div className="card">
+        <div className="card interactive">
           <h2>Concept</h2>
           {lesson.keywords ? (
             <ConceptHighlighter text={lesson.concept} keywords={lesson.keywords} />
@@ -72,7 +72,7 @@ export default function LessonPage({ params }) {
           )}
         </div>
 
-        <div className="card">
+        <div className="card interactive">
           <h2>Try it</h2>
           <p>{lesson.exercise}</p>
         </div>
@@ -179,7 +179,7 @@ export default function LessonPage({ params }) {
         )}
 
         {lesson.reflection && (
-          <div className="card">
+          <div className="card interactive">
             <h2>Reflect</h2>
             <p>{lesson.reflection}</p>
           </div>
