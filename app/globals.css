@@ -1,35 +1,40 @@
 :root {
-  /* Base palette: light blue + light gray + white */
-  --bg: #f7fafc;              /* page background */
-  --card: #ffffff;            /* surfaces/cards */
-  --surface: #f1f5f9;         /* subtle surface (tracks, chips) */
-  --border: #e2e8f0;          /* light gray border */
-  --muted: #475569;           /* slate-600 for body text */
-  --text: #0f172a;            /* slate-900 for headings and main text */
+  /* Enhanced light blue + light gray theme */
+  --bg: #f8fafc;              /* Very light blue-gray background */
+  --card: #ffffff;            /* Pure white cards */
+  --surface: #f1f5f9;         /* Light blue-gray surface */
+  --surface-alt: #e2e8f0;     /* Slightly darker light gray */
+  --border: #cbd5e1;          /* Light gray borders */
+  --border-light: #e2e8f0;    /* Even lighter borders */
+  --muted: #64748b;           /* Medium gray for secondary text */
+  --text: #0f172a;            /* Dark slate for primary text */
 
-  --brand: #3b82f6;           /* blue-500 */
-  --brand-soft: #dbeafe;      /* blue-100/200 */
-  --accent: #10b981;          /* emerald-500 */
-  --accent-soft: #d1fae5;     /* emerald-100 */
-  --warning: #f59e0b;         /* amber-500 */
-  --warning-soft: #fef3c7;    /* amber-100 */
+  --brand: #0ea5e9;           /* Sky blue - more vibrant */
+  --brand-light: #e0f2fe;     /* Very light sky blue */
+  --brand-soft: #f0f9ff;      /* Soft sky blue background */
+  --accent: #06b6d4;          /* Cyan accent */
+  --accent-soft: #ecfeff;     /* Very light cyan */
+  --success: #10b981;         /* Emerald for success */
+  --success-soft: #f0fdf4;    /* Very light green */
+  --warning: #f59e0b;         /* Amber warning */
+  --warning-soft: #fffbeb;    /* Very light amber */
 
-  /* Theme colors (kept for area accents) */
-  --math-primary: #ff6b6b;
-  --math-secondary: #ff8e8e;
-  --math-bg: rgba(255, 107, 107, 0.08);
+  /* Theme colors with light blue/gray variations */
+  --math-primary: #3b82f6;    /* Blue */
+  --math-secondary: #dbeafe;  /* Light blue */
+  --math-bg: rgba(59, 130, 246, 0.06);
 
-  --data-primary: #4ecdc4;
-  --data-secondary: #7dd3c0;
-  --data-bg: rgba(78, 205, 196, 0.08);
+  --data-primary: #06b6d4;    /* Cyan */
+  --data-secondary: #cffafe;  /* Light cyan */
+  --data-bg: rgba(6, 182, 212, 0.06);
 
-  --science-primary: #45b7d1;
-  --science-secondary: #6cc7e0;
-  --science-bg: rgba(69, 183, 209, 0.08);
+  --science-primary: #0ea5e9;  /* Sky blue */
+  --science-secondary: #e0f2fe; /* Light sky blue */
+  --science-bg: rgba(14, 165, 233, 0.06);
 
-  --coding-primary: #96ceb4;
-  --coding-secondary: #b0d8c5;
-  --coding-bg: rgba(150, 206, 180, 0.08);
+  --coding-primary: #64748b;  /* Slate gray */
+  --coding-secondary: #f1f5f9; /* Light slate */
+  --coding-bg: rgba(100, 116, 139, 0.06);
 }
 
 * { box-sizing: border-box; }
@@ -108,7 +113,7 @@ p { color: var(--muted); line-height: 1.6; }
 }
 .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1rem; }
 .card.hover { transition: transform 120ms ease, border-color 120ms ease; }
-.card.hover:hover { transform: translateY(-2px); border-color: #cbd5e1; }
+.card.hover:hover { transform: translateY(-2px); border-color: var(--brand-light); }
 
 /* Theme-specific card styles */
 [data-theme="math"] .card { border-left: 4px solid var(--math-primary); }
@@ -231,20 +236,20 @@ p { color: var(--muted); line-height: 1.6; }
 .list-item { margin: 0.4rem 0; }
 .list-item a { color: var(--brand); text-decoration: none; }
 
-/* Highlight */
-mark { background: #e6f0ff; color: var(--text); padding: 0 0.2rem; border-radius: 4px; }
+/* Highlight with light blue theme */
+mark { background: var(--brand-light); color: var(--text); padding: 0 0.2rem; border-radius: 4px; }
 
-/* Callouts */
+/* Callouts with enhanced light blue/gray theme */
 .callout { border: 1px solid var(--border); border-left-width: 4px; padding: 0.75rem; border-radius: 10px; background: var(--surface); }
 .callout .callout-title { font-weight: 700; margin-bottom: 0.25rem; }
 .callout.info { border-left-color: var(--brand); background: var(--brand-soft); }
 .callout.success { border-left-color: var(--accent); background: var(--accent-soft); }
 .callout.warn { border-left-color: var(--warning); background: var(--warning-soft); }
-.callout.tip { border-left-color: var(--accent); background: var(--accent-soft); }
+.callout.tip { border-left-color: var(--brand); background: var(--brand-light); }
 
-/* Fun tag palette variations */
-.tags .tag:nth-child(5n+1){ background:#e0f2fe; color:#075985; border-color:#bae6fd }
-.tags .tag:nth-child(5n+2){ background:#fef3c7; color:#92400e; border-color:#fde68a }
-.tags .tag:nth-child(5n+3){ background:#dcfce7; color:#065f46; border-color:#bbf7d0 }
-.tags .tag:nth-child(5n+4){ background:#ede9fe; color:#5b21b6; border-color:#ddd6fe }
-.tags .tag:nth-child(5n+5){ background:#f1f5f9; color:#0f172a; border-color:#e2e8f0 }
+/* Enhanced tag styles with light blue/gray theme */
+.tags .tag:nth-child(5n+1){ background: var(--brand-soft); color: var(--brand); border-color: var(--brand-light); }
+.tags .tag:nth-child(5n+2){ background: var(--surface-alt); color: var(--muted); border-color: var(--border); }
+.tags .tag:nth-child(5n+3){ background: var(--accent-soft); color: var(--accent); border-color: var(--accent-soft); }
+.tags .tag:nth-child(5n+4){ background: var(--surface); color: var(--text); border-color: var(--border-light); }
+.tags .tag:nth-child(5n+5){ background: var(--brand-light); color: var(--brand); border-color: var(--brand-soft); }
