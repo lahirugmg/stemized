@@ -53,6 +53,19 @@ const area = {
       interactiveCalculator: true
     },
     {
+      title: 'Area and Perimeter of Rectangles',
+      summary: 'Compute area (w × h) and perimeter (2(w + h)).',
+      concept:
+        'Area measures how much space is inside a shape (in square units), while perimeter measures the distance around it (in linear units). For rectangles: area = width × height; perimeter = 2 × (width + height).',
+      keywords: ['area', 'perimeter', 'rectangle', 'width', 'height', 'square units', 'linear units'],
+      exercise: 'Find area and perimeter of a 5 by 3 rectangle.',
+      solution: 'Area = 5 × 3 = 15 square units. Perimeter = 2 × (5 + 3) = 16 units.',
+      callouts: [
+        { type: 'tip', title: 'Units Matter', body: 'Area uses square units (e.g., cm²), perimeter uses linear units (e.g., cm).' }
+      ],
+      areaPerimeter: true
+    },
+    {
       title: 'Distributive Property',
       summary: 'Multiply across addition: a(b + c) = ab + ac.',
       concept:

@@ -26,6 +26,7 @@ import MathPracticeGenerator from '../../../../components/MathPracticeGenerator'
 import ExpressionTree from '../../../../components/ExpressionTree'
 import AreaModelVisualizer from '../../../../components/AreaModelVisualizer'
 import NumberLineEquation from '../../../../components/NumberLineEquation'
+import AreaPerimeterExplorer from '../../../../components/AreaPerimeterExplorer'
 import ErrorBoundary from '../../../../components/ErrorBoundary'
 import { useKeyboardNavigation } from '../../../../hooks/useKeyboardNavigation'
 import { setProgress } from '../../../../lib/progress'
@@ -132,6 +133,11 @@ export default function LessonPageClient({ area, lesson, idx, totalLessons }) {
         {lesson.areaModel && (
           <ErrorBoundary>
             <AreaModelVisualizer />
+          </ErrorBoundary>
+        )}
+        {lesson.areaPerimeter && (
+          <ErrorBoundary>
+            <AreaPerimeterExplorer />
           </ErrorBoundary>
         )}
         {lesson.equationSolver && (
