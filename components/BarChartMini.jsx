@@ -8,10 +8,10 @@ export default function BarChartMini({ title = 'Data Growth', bars = [] }) {
           <div key={i}>
             <div style={{ display:'flex', justifyContent:'space-between', marginBottom:'0.2rem' }}>
               <span style={{ color:'var(--muted)' }}>{b.label}</span>
-              <span style={{ color:'#a7bee8' }}>{b.caption}</span>
+              <span style={{ color:'var(--muted)' }}>{b.caption}</span>
             </div>
-            <div style={{ background:'#0b1b3d', border:'1px solid #2a3769', borderRadius:8, overflow:'hidden' }}>
-              <div style={{ width: `${(b.value/max)*100}%`, background:'#123573', height:10 }} />
+            <div style={{ background:'var(--surface)', border:'1px solid var(--border)', borderRadius:8, overflow:'hidden' }}>
+              <div style={{ width: `${(b.value/max)*100}%`, background:'var(--brand)', height:10 }} />
             </div>
           </div>
         ))}
@@ -19,4 +19,3 @@ export default function BarChartMini({ title = 'Data Growth', bars = [] }) {
     </div>
   )
 }
-

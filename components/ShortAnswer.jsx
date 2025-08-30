@@ -16,7 +16,7 @@ export default function ShortAnswer({ prompt, expectedKeywords = [], sample }) {
         value={txt}
         onChange={(e)=>{ setTxt(e.target.value); setChecked(false) }}
         rows={4}
-        style={{ width:'100%', background:'#0b1b3d', border:'1px solid #2a3769', color:'var(--text)', borderRadius:8, padding:'0.6rem' }}
+        style={{ width:'100%', background:'var(--surface)', border:'1px solid var(--border)', color:'var(--text)', borderRadius:8, padding:'0.6rem' }}
         placeholder="Write your answer here..."
       />
       <div className="actions">
@@ -40,4 +40,3 @@ export default function ShortAnswer({ prompt, expectedKeywords = [], sample }) {
 function escapeRegExp(str) {
   return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
 }
-
