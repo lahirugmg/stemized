@@ -28,6 +28,7 @@ import AreaModelVisualizer from '../../../../components/AreaModelVisualizer'
 import NumberLineEquation from '../../../../components/NumberLineEquation'
 import AreaPerimeterExplorer from '../../../../components/AreaPerimeterExplorer'
 import ErrorBoundary from '../../../../components/ErrorBoundary'
+import FunctionGrapher from '../../../../components/FunctionGrapher'
 import { useKeyboardNavigation } from '../../../../hooks/useKeyboardNavigation'
 import { setProgress } from '../../../../lib/progress'
 
@@ -143,6 +144,11 @@ export default function LessonPageClient({ area, lesson, idx, totalLessons }) {
         {lesson.equationSolver && (
           <ErrorBoundary>
             <EquationSolver />
+          </ErrorBoundary>
+        )}
+        {lesson.functionGrapher && (
+          <ErrorBoundary>
+            <FunctionGrapher />
           </ErrorBoundary>
         )}
         {lesson.numberLine && (
