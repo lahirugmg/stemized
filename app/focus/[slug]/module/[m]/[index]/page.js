@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { getAreaBySlug, getModule } from '../../../../../../data/topics'
+import { getAreaBySlug, getModule } from '../../../../../../data'
 import Timeline from '../../../../../../components/Timeline'
 import ConceptCheck from '../../../../../../components/ConceptCheck'
 import CardSorter from '../../../../../../components/CardSorter'
@@ -157,4 +157,3 @@ export default function ModuleLessonPage({ params }) {
     </section>
   )
 }
-

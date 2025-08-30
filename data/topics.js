@@ -999,28 +999,328 @@ export const focusAreas = [
     ]
   },
   {
-    slug: 'science-essentials',
-    title: 'Science Essentials',
-    description: 'Core ideas from physics and biology, made bite-sized.',
-    tags: ['Physics', 'Biology'],
-    color: '#45b7d1',
+    slug: 'physics-basics',
+    title: 'Physics Basics',
+    description: 'Core physics concepts made bite-size with quick checks.',
+    tags: ['Kinematics', 'Forces', 'Energy', 'Momentum', 'Waves', 'Electricity'],
+    color: '#f4a261',
     theme: 'science',
+    modules: [
+      { slug: 'motion-forces', title: 'Module 1: Motion & Forces', description: 'Kinematics, Newton’s laws, and FBDs.', lessonIndexes: [0, 1, 2, 3] },
+      { slug: 'energy-work', title: 'Module 2: Energy & Work', description: 'Work, energy, power, conservation.', lessonIndexes: [4, 5, 6] },
+      { slug: 'momentum-collisions', title: 'Module 3: Momentum & Collisions', description: 'Momentum, impulse, elastic vs inelastic.', lessonIndexes: [7, 8, 9] },
+      { slug: 'waves-sound', title: 'Module 4: Waves & Sound', description: 'Wave properties, sound, interference.', lessonIndexes: [10, 11, 12] },
+      { slug: 'electricity-basics', title: 'Module 5: Electricity & Circuits', description: 'Charge, fields, circuits, Ohm’s law.', lessonIndexes: [13, 14, 15] }
+    ],
     lessons: [
       {
-        title: 'Newton\'s First Law',
-        summary: 'Objects keep their motion unless acted on.',
+        title: 'Kinematics: Speed, Velocity, Acceleration',
+        summary: 'Describe motion with rates of change and direction.',
         concept:
-          'An object in motion stays in motion (and at rest stays at rest) unless acted on by a net external force.',
+          'Speed is distance per time; velocity adds direction; acceleration is change in velocity per time. Constant acceleration equations connect displacement, velocity, acceleration, and time.',
+        keywords: ['speed', 'velocity', 'acceleration'],
         exercise:
-          'Describe a real-world example where friction acts as the external force.'
+          'A car goes from 10 m/s to 20 m/s in 5 s. What is its average acceleration?'
       },
       {
-        title: 'Cell Theory Basics',
-        summary: 'All living things are made of cells.',
+        title: 'Graphs of Motion',
+        summary: 'Interpret position–time and velocity–time graphs.',
         concept:
-          'Cells are the basic unit of life; new cells arise from existing cells; organisms can be unicellular or multicellular.',
+          'The slope of a position–time graph gives velocity; the slope of a velocity–time graph gives acceleration; area under velocity–time gives displacement.',
+        keywords: ['slope', 'area', 'displacement'],
+        quiz: {
+          question: 'What does the area under a velocity–time graph represent?',
+          options: ['Velocity', 'Acceleration', 'Displacement', 'Jerk'],
+          answerIndex: 2,
+          hint: 'Integrate velocity over time.'
+        }
+      },
+      {
+        title: 'Newton’s Laws (I & II)',
+        summary: 'Inertia and F = ma relate forces to motion.',
+        concept:
+          'Objects maintain their state of motion unless net force acts (1st law). Net force equals mass times acceleration (2nd law). Identify forces, sum vectors, and relate to acceleration.',
+        keywords: ['inertia', 'net force', 'F = ma'],
+        shortAnswer: {
+          prompt: 'A 2 kg box accelerates at 3 m/s². What net force acts? Explain briefly.',
+          expectedKeywords: ['F=ma', '6 N', 'direction'],
+          sample: 'F = ma = 6 N in the direction of acceleration.'
+        }
+      },
+      {
+        title: 'Free-Body Diagrams (FBDs)',
+        summary: 'Draw forces to reason about motion.',
+        concept:
+          'Represent objects as points with force arrows (weight, normal, tension, friction). Sum components on each axis to apply Newton’s 2nd law.',
+        keywords: ['weight', 'normal', 'friction'],
         exercise:
-          'List three differences between prokaryotic and eukaryotic cells.'
+          'Sketch FBDs for a block on a rough horizontal surface and on an incline, labeling forces.'
+      },
+      {
+        title: 'Work and Energy',
+        summary: 'Relate force and displacement to energy changes.',
+        concept:
+          'Work W = F d cosθ. Kinetic energy KE = ½mv²; gravitational potential PE = mgh. Work–Energy Theorem: Net work changes kinetic energy.',
+        keywords: ['work', 'kinetic', 'potential'],
+        quiz: {
+          question: 'Doubling speed changes KE by…',
+          options: ['2×', '3×', '4×', '½×'],
+          answerIndex: 2,
+          hint: 'KE ∝ v².'
+        }
+      },
+      {
+        title: 'Energy Conservation',
+        summary: 'Track energy forms in closed systems.',
+        concept:
+          'Total mechanical energy stays constant without non-conservative forces. Convert between KE and PE; account for losses (heat, sound) if present.',
+        keywords: ['conservation', 'mechanical energy'],
+        flow: { title: 'Solve Energy Problems', steps: ['Identify energy forms', 'Write conservation equation', 'Solve for unknowns', 'Check units'] }
+      },
+      {
+        title: 'Power',
+        summary: 'Rate of doing work or energy transfer.',
+        concept:
+          'Power P = W/t = Fv for constant speed. Units: watt (J/s). Higher power means faster energy transfer.',
+        keywords: ['power', 'Watt'],
+        quiz: {
+          question: 'A motor does 600 J in 3 s. Power?',
+          options: ['100 W', '200 W', '300 W', '600 W'],
+          answerIndex: 1,
+          hint: 'Divide work by time.'
+        }
+      },
+      {
+        title: 'Momentum',
+        summary: 'Mass in motion with conservation in isolated systems.',
+        concept:
+          'Momentum p = mv is conserved when net external impulse is zero. Impulse J = FΔt changes momentum: J = Δp.',
+        keywords: ['momentum', 'impulse', 'conservation'],
+        quiz: {
+          question: 'Which quantity is always conserved in all collisions (isolated system)?',
+          options: ['Kinetic energy', 'Momentum', 'Speed', 'Potential energy'],
+          answerIndex: 1,
+          hint: 'Energy conservation depends on collision type.'
+        }
+      },
+      {
+        title: 'Elastic vs Inelastic Collisions',
+        summary: 'Compare energy behavior while momentum stays conserved.',
+        concept:
+          'Elastic collisions conserve kinetic energy; inelastic do not (objects may stick). Momentum is conserved in both for isolated systems.',
+        keywords: ['elastic', 'inelastic'],
+        categorize: {
+          title: 'Classify Collision Traits',
+          categories: ['Elastic', 'Inelastic'],
+          items: ['Kinetic energy conserved', 'Objects stick', 'Momentum conserved', 'Some KE becomes heat/sound', 'Perfect bounce'],
+          solution: { Elastic: ['Kinetic energy conserved', 'Momentum conserved', 'Perfect bounce'], Inelastic: ['Objects stick', 'Some KE becomes heat/sound'] }
+        }
+      },
+      {
+        title: 'Impulse–Momentum Theorem',
+        summary: 'Force over time changes momentum.',
+        concept:
+          'A larger contact time reduces peak force for the same Δp. Safety features (airbags) increase Δt to lower forces.',
+        keywords: ['impulse', 'Δp', 'force–time'],
+        shortAnswer: { prompt: 'Explain how crumple zones reduce injury using impulse.', expectedKeywords: ['increase time', 'reduce force', 'same Δp'], sample: 'Crumple zones increase stop time, reducing force for the same momentum change.' }
+      },
+      {
+        title: 'Wave Basics',
+        summary: 'Amplitude, wavelength, frequency, and speed.',
+        concept:
+          'Wave speed v = fλ. Amplitude affects energy, not speed in a given medium. Period T = 1/f. Distinguish transverse vs longitudinal.',
+        keywords: ['v=fλ', 'amplitude', 'period'],
+        quiz: {
+          question: 'If wavelength doubles in same medium, speed constant, frequency…',
+          options: ['Doubles', 'Halves', 'Unchanged', 'Zero'],
+          answerIndex: 1,
+          hint: 'v = fλ.'
+        }
+      },
+      {
+        title: 'Sound',
+        summary: 'Longitudinal waves, pitch, loudness, Doppler.',
+        concept:
+          'Sound travels faster in solids than gases. Pitch relates to frequency; loudness to amplitude. Moving sources shift frequency (Doppler effect).',
+        keywords: ['longitudinal', 'Doppler'],
+        callouts: [ { type: 'info', title: 'No sound in vacuum', body: 'Sound needs a medium to propagate.' } ]
+      },
+      {
+        title: 'Interference',
+        summary: 'Constructive vs destructive superposition.',
+        concept:
+          'When waves overlap, amplitudes add. In phase → constructive; out of phase → destructive. Patterns appear in sound, light, and water waves.',
+        keywords: ['superposition', 'phase'],
+        categorize: { title: 'Classify Interference', categories: ['Constructive', 'Destructive'], items: ['In phase', 'Out of phase', 'Louder/brighter', 'Quieter/darker'], solution: { Constructive: ['In phase', 'Louder/brighter'], Destructive: ['Out of phase', 'Quieter/darker'] } }
+      },
+      {
+        title: 'Electric Charge and Field',
+        summary: 'Like charges repel; fields describe forces.',
+        concept:
+          'Charge is conserved and quantized. Electric fields point from + to −. Field lines visualize direction and relative strength.',
+        keywords: ['charge', 'field'],
+        terms: { title: 'Electrostatics Terms', items: [ { term: 'Coulomb', def: 'SI unit of electric charge' }, { term: 'Field Line', def: 'Tangent gives force direction on + test charge' }, { term: 'Conductor', def: 'Material with free charges' } ] }
+      },
+      {
+        title: 'Current, Voltage, Resistance',
+        summary: 'Ohm’s law relates the trio: V = IR.',
+        concept:
+          'Voltage is potential difference, current is charge flow, resistance opposes current. Ohm’s law connects them for ohmic materials.',
+        keywords: ['V=IR', 'current', 'resistance'],
+        quiz: { question: 'If V doubles and R fixed, I…', options: ['Halves', 'Doubles', 'Unchanged', 'Zero'], answerIndex: 1, hint: 'V = IR.' }
+      },
+      {
+        title: 'Series vs Parallel Circuits',
+        summary: 'Compare current, voltage, and equivalent resistance.',
+        concept:
+          'In series: same current, voltages add, equivalent resistance increases. In parallel: same voltage, currents add, equivalent resistance decreases.',
+        keywords: ['series', 'parallel'],
+        categorize: { title: 'Classify Circuit Traits', categories: ['Series', 'Parallel'], items: ['Same current', 'Same voltage', 'Resistances add', 'Currents add', 'Req decreases'], solution: { Series: ['Same current', 'Resistances add'], Parallel: ['Same voltage', 'Currents add', 'Req decreases'] } }
+      }
+    ]
+  },
+  {
+    slug: 'biology-basics',
+    title: 'Biology Basics',
+    description: 'Cells to ecosystems in short, interactive lessons.',
+    tags: ['Cells', 'Genetics', 'Metabolism', 'Systems', 'Ecology', 'Evolution'],
+    color: '#2a9d8f',
+    theme: 'science',
+    modules: [
+      { slug: 'cells-organelles', title: 'Module 1: Cells & Organelles', description: 'Cell theory, types, organelles, membranes.', lessonIndexes: [0, 1, 2, 3] },
+      { slug: 'genetics', title: 'Module 2: Genetics & Inheritance', description: 'DNA, gene expression, Mendelian patterns.', lessonIndexes: [4, 5, 6, 7] },
+      { slug: 'energy-metabolism', title: 'Module 3: Energy & Metabolism', description: 'Photosynthesis, respiration, enzymes, pathways.', lessonIndexes: [8, 9, 10, 11] },
+      { slug: 'homeostasis-systems', title: 'Module 4: Homeostasis & Systems', description: 'Feedback, systems, immune basics.', lessonIndexes: [12, 13, 14] },
+      { slug: 'ecology-evolution', title: 'Module 5: Ecology & Evolution', description: 'Populations, selection, and change over time.', lessonIndexes: [15] }
+    ],
+    lessons: [
+      {
+        title: 'Cell Theory',
+        summary: 'Cells are the basic unit of life.',
+        concept:
+          'All living things are made of cells; cells come from pre-existing cells; cells are the basic unit of structure and function.',
+        keywords: ['cell', 'life'],
+        quiz: { question: 'Which is NOT part of cell theory?', options: ['All organisms are made of cells', 'Cells arise from non-living matter', 'Cells are the basic unit of life', 'New cells come from existing cells'], answerIndex: 1, hint: 'Think about spontaneous generation.' }
+      },
+      {
+        title: 'Prokaryotic vs Eukaryotic',
+        summary: 'Compare cell types and features.',
+        concept:
+          'Prokaryotes lack a nucleus and membrane-bound organelles; eukaryotes have them. Size, complexity, and reproduction differ.',
+        keywords: ['nucleus', 'organelles'],
+        categorize: { title: 'Classify Cell Traits', categories: ['Prokaryotic', 'Eukaryotic'], items: ['Nucleus present', 'Smaller size', 'Membrane-bound organelles', 'Often unicellular', 'Compartmentalized'], solution: { Prokaryotic: ['Smaller size', 'Often unicellular'], Eukaryotic: ['Nucleus present', 'Membrane-bound organelles', 'Compartmentalized'] } }
+      },
+      {
+        title: 'Organelles and Functions',
+        summary: 'Key cellular structures and roles.',
+        concept:
+          'Nucleus stores DNA; mitochondria make ATP; ribosomes build proteins; ER/Golgi process and ship; lysosomes recycle; chloroplasts photosynthesize in plants.',
+        keywords: ['mitochondria', 'ribosome', 'chloroplast'],
+        flashcards: { title: 'Organelle → Function', cards: [ { front: 'Mitochondrion', back: 'ATP production' }, { front: 'Ribosome', back: 'Protein synthesis' }, { front: 'Chloroplast', back: 'Photosynthesis (plants)' } ] }
+      },
+      {
+        title: 'Membranes and Transport',
+        summary: 'Diffusion, osmosis, and active transport.',
+        concept:
+          'Membranes are selectively permeable. Diffusion moves down gradients; osmosis is water diffusion; active transport uses energy to move against gradients.',
+        keywords: ['diffusion', 'osmosis', 'active transport'],
+        flow: { title: 'Crossing the Membrane', steps: ['Identify gradient', 'Passive or active?', 'Transport mechanism', 'Energy needed?'] }
+      },
+      {
+        title: 'DNA Structure & Replication',
+        summary: 'Double helix copying with base pairing.',
+        concept:
+          'DNA is a double helix with complementary base pairing (A-T, C-G). Replication is semi-conservative using DNA polymerase and primers.',
+        keywords: ['double helix', 'base pairing'],
+        terms: { title: 'DNA Terms', items: [ { term: 'Nucleotide', def: 'Sugar + phosphate + base' }, { term: 'Polymerase', def: 'Enzyme that synthesizes DNA' }, { term: 'Semi-conservative', def: 'Each new DNA has one old strand' } ] }
+      },
+      {
+        title: 'Gene Expression',
+        summary: 'Transcription then translation make proteins.',
+        concept:
+          'DNA → mRNA (transcription) in the nucleus; mRNA → protein (translation) in ribosomes. The genetic code maps codons to amino acids.',
+        keywords: ['transcription', 'translation'],
+        order: { title: 'Order the Central Dogma', items: ['DNA', 'Protein', 'mRNA'], solution: ['DNA', 'mRNA', 'Protein'] }
+      },
+      {
+        title: 'Mendelian Inheritance',
+        summary: 'Dominant/recessive alleles and segregation.',
+        concept:
+          'Traits are controlled by alleles; segregation separates allele pairs; independent assortment mixes different genes. Use Punnett squares to predict ratios.',
+        keywords: ['allele', 'dominant', 'recessive'],
+        quiz: { question: 'Aa × aa: probability of recessive phenotype?', options: ['0%', '25%', '50%', '75%'], answerIndex: 2, hint: 'Punnett square with one dominant and one recessive parent.' }
+      },
+      {
+        title: 'Beyond Mendel',
+        summary: 'Incomplete dominance, codominance, polygenic traits.',
+        concept:
+          'Not all traits are simple dominant/recessive. Incomplete dominance blends; codominance expresses both; polygenic traits involve many genes.',
+        keywords: ['incomplete', 'codominance', 'polygenic'],
+        callouts: [ { type: 'info', title: 'Environment Matters', body: 'Phenotypes can be influenced by environment as well as genes.' } ]
+      },
+      {
+        title: 'Photosynthesis Overview',
+        summary: 'Capture light to make sugars.',
+        concept:
+          'Chloroplasts use light energy to convert CO₂ and H₂O to glucose and O₂. Light reactions make ATP/NADPH; Calvin cycle fixes carbon.',
+        keywords: ['chloroplast', 'Calvin cycle'],
+        quiz: { question: 'Photosynthesis occurs in which organelle?', options: ['Mitochondrion', 'Ribosome', 'Chloroplast', 'Golgi'], answerIndex: 2, hint: 'Green pigment chlorophyll.' }
+      },
+      {
+        title: 'Cellular Respiration',
+        summary: 'Release energy from glucose to make ATP.',
+        concept:
+          'Glycolysis → Krebs cycle → Electron transport chain convert glucose to ATP. Oxygen is the final electron acceptor in aerobic respiration.',
+        keywords: ['ATP', 'mitochondria'],
+        quiz: { question: 'Which stage yields most ATP?', options: ['Glycolysis', 'Krebs', 'ETC', 'Fermentation'], answerIndex: 2, hint: 'Proton gradient drives ATP synthase.' }
+      },
+      {
+        title: 'Enzymes and Rate',
+        summary: 'Catalysts lower activation energy.',
+        concept:
+          'Enzymes bind substrates at active sites and speed reactions without being consumed. Temperature and pH affect activity.',
+        keywords: ['activation energy', 'active site'],
+        callouts: [ { type: 'tip', title: 'Denaturation', body: 'Extreme temperature or pH can unfold proteins and reduce activity.' } ]
+      },
+      {
+        title: 'Metabolic Pathways',
+        summary: 'Catabolic vs anabolic processes.',
+        concept:
+          'Catabolism breaks molecules to release energy; anabolism builds complex molecules using energy. Pathways are regulated to balance needs.',
+        keywords: ['catabolism', 'anabolism'],
+        categorize: { title: 'Classify Pathways', categories: ['Catabolism', 'Anabolism'], items: ['Builds proteins', 'Breaks glycogen', 'Energy release', 'Energy input'], solution: { Catabolism: ['Breaks glycogen', 'Energy release'], Anabolism: ['Builds proteins', 'Energy input'] } }
+      },
+      {
+        title: 'Homeostasis',
+        summary: 'Maintain internal balance via feedback.',
+        concept:
+          'Negative feedback reduces deviations (e.g., temperature control); positive feedback amplifies signals (e.g., blood clotting).',
+        keywords: ['feedback', 'set point'],
+        order: { title: 'Order a Negative Feedback Loop', items: ['Response', 'Sensor detects change', 'Stimulus disturbs', 'Control center acts'], solution: ['Stimulus disturbs', 'Sensor detects change', 'Control center acts', 'Response'] }
+      },
+      {
+        title: 'Body Systems Overview',
+        summary: 'Major systems and their roles.',
+        concept:
+          'Digestive, respiratory, circulatory, nervous, endocrine, immune, and excretory systems coordinate to sustain life. Structure supports function.',
+        keywords: ['system', 'function'],
+        terms: { title: 'Systems Quick Terms', items: [ { term: 'Homeostasis', def: 'Stable internal conditions' }, { term: 'Hormone', def: 'Chemical messenger' }, { term: 'Neuron', def: 'Nerve cell for signaling' } ] }
+      },
+      {
+        title: 'Immune Basics',
+        summary: 'Innate vs adaptive defenses.',
+        concept:
+          'Innate immunity provides quick, non-specific defense (barriers, inflammation). Adaptive immunity learns and targets specific antigens with memory.',
+        keywords: ['innate', 'adaptive'],
+        categorize: { title: 'Classify Immune Traits', categories: ['Innate', 'Adaptive'], items: ['Memory', 'Fast response', 'Specific', 'Physical barriers'], solution: { Innate: ['Fast response', 'Physical barriers'], Adaptive: ['Memory', 'Specific'] } }
+      },
+      {
+        title: 'Ecology & Evolution Basics',
+        summary: 'Populations change via selection and interactions.',
+        concept:
+          'Natural selection favors traits that improve fitness in a given environment. Populations interact via predation, competition, and symbiosis.',
+        keywords: ['selection', 'population'],
+        quiz: { question: 'Which best defines natural selection?', options: ['Random change', 'Inheritance of acquired traits', 'Differential survival and reproduction', 'Goal-driven improvement'], answerIndex: 2, hint: 'Think fitness in an environment.' }
       }
     ]
   },

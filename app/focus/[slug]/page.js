@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { getAreaBySlug } from '../../../data/topics'
+import { getAreaBySlug } from '../../../data'
 import FocusAreaProgress from '../../../components/FocusAreaProgress'
 
 export default function FocusIndex({ params }) {
