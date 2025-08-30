@@ -32,6 +32,105 @@ export const focusAreas = [
     ]
   },
   {
+    slug: 'data-mining',
+    title: 'Data Mining',
+    description: 'Discover patterns in data through stories, hands-on practice, and reflection.',
+    tags: ['History', 'Purpose', 'CRISP-DM'],
+    lessons: [
+      {
+        title: 'History and Purpose of Data Mining',
+        summary: 'How we got here and why data mining matters.',
+        story:
+          'Imagine a small retailer in the 1990s analyzing checkout receipts. By grouping items bought together across thousands of transactions, they uncover surprising product pairings. This “market basket analysis” wasn’t about fancy models—it was about letting patterns in the data speak. Around the same time, the Knowledge Discovery in Databases (KDD) community and the CRISP-DM methodology emerged to turn raw data into useful knowledge, step by step.',
+        concept:
+          'Data mining is the process of discovering useful, non-trivial patterns from data to support decisions. It overlaps with statistics (inference) and machine learning (prediction), but focuses on pattern discovery, actionable insights, and decision support. Why mine data? Data is exploding: from 1TB in 2000 to 30TB+ in 2025. We need automated methods to handle volume, velocity, and variety. Applications: personalized recommendations, fraud detection, medical diagnosis, customer segmentation. Milestones: 1960s–80s databases and OLAP; late 1980s KDD workshops; late 1990s CRISP-DM; 2000s “big data” and distributed systems; 2010s deep learning influences. Common goals: association discovery (what co-occurs), classification (predict labels), clustering (group similar items), anomaly detection (find outliers).',
+        exercise:
+          'Do-now: List three data sources around you (apps, sensors, logs). For each, state one possible pattern (association, classification, clustering, anomaly) that could create value. Example: streaming app logs → anomaly detection to flag login fraud.',
+        reflection:
+          'Where could data-derived patterns meaningfully change decisions in your school/work? What are two risks (e.g., bias, privacy) and one mitigation you would apply?',
+        visualization: 'DataGrowthChart',
+        simulator: 'MarketBasketSimulator',
+        timeline: {
+          title: 'Data Mining: A Brief Timeline',
+          items: [
+            { year: '1960s–80s', label: 'Databases and OLAP', note: 'Structured storage and analytics foundations.' },
+            { year: '1989', label: 'KDD workshops', note: 'Formalizes knowledge discovery from data.' },
+            { year: '1996–2000', label: 'CRISP-DM', note: 'A practical, iterative project lifecycle.' },
+            { year: '2000s', label: 'Big Data era', note: 'Distributed systems for volume, velocity, variety.' },
+            { year: '2010s', label: 'Deep learning impact', note: 'Representation learning influences pattern discovery.' }
+          ]
+        },
+        quiz: {
+          question: 'Which goal best matches “What co-occurs together in data?”',
+          options: ['Classification', 'Association discovery', 'Clustering', 'Anomaly detection'],
+          answerIndex: 1,
+          hint: 'Think market baskets and co-purchased items.'
+        },
+        quiz2: {
+          question: 'What is the primary driver for the rise of data mining?',
+          options: ['Decreasing data volumes', 'Exponential data growth', 'Manual analysis becoming cheaper', 'Elimination of computers'],
+          answerIndex: 1,
+          hint: 'Consider the data explosion from 1TB to 30TB+ in 25 years.'
+        },
+        sorter: {
+          prompt: 'Place each item into Benefits or Challenges of Data Mining.',
+          items: [
+            'Personalization and recommendations',
+            'Fraud/anomaly detection',
+            'Data quality issues',
+            'Privacy and compliance risks',
+            'Operational efficiency',
+            'Model/insight drift over time'
+          ],
+          solution: {
+            benefits: [
+              'Personalization and recommendations',
+              'Fraud/anomaly detection',
+              'Operational efficiency'
+            ],
+            challenges: [
+              'Data quality issues',
+              'Privacy and compliance risks',
+              'Model/insight drift over time'
+            ]
+          }
+        }
+      },
+      {
+        title: 'KDD vs Data Mining',
+        summary: 'KDD is the broader process; data mining is the core step.',
+        concept:
+          'KDD = selection → preprocessing → transformation → data mining → interpretation/evaluation. Data mining is the model/pattern discovery step within KDD.',
+        exercise:
+          'Map a simple dataset (e.g., course grades) to each KDD step.'
+      },
+      {
+        title: 'CRISP-DM Phases',
+        summary: 'A practical lifecycle to structure projects.',
+        concept:
+          'Business understanding, data understanding, data preparation, modeling, evaluation, deployment. Iterative and cyclical.',
+        exercise:
+          'Draft a one-page CRISP-DM plan for a churn problem.'
+      },
+      {
+        title: 'Pattern Types and Examples',
+        summary: 'Association, classification, clustering, anomaly detection.',
+        concept:
+          'Examples: Market basket rules; decision trees for approval; k-means for customer segments; isolation forest for anomaly detection.',
+        exercise:
+          'Classify 6 mini-scenarios into one of the four pattern types.'
+      },
+      {
+        title: 'Mini Case Study: Churn',
+        summary: 'From raw data to an actionable churn playbook.',
+        concept:
+          'Frame the objective, explore features, try baseline models, evaluate pragmatically, and connect insights to actions (e.g., retention offers).',
+        exercise:
+          'Write a three-bullet “Next best action” based on a hypothetical churn model.'
+      }
+    ]
+  },
+  {
     slug: 'science-essentials',
     title: 'Science Essentials',
     description: 'Core ideas from physics and biology, made bite-sized.',
@@ -84,4 +183,3 @@ export const focusAreas = [
 export function getAreaBySlug(slug) {
   return focusAreas.find((a) => a.slug === slug)
 }
-
