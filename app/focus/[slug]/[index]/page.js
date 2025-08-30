@@ -12,6 +12,9 @@ import BarChartMini from '../../../../components/BarChartMini'
 import MultiCategorySorter from '../../../../components/MultiCategorySorter'
 import SimilarityPlayground from '../../../../components/SimilarityPlayground'
 import LessonProgress from '../../../../components/LessonProgress'
+import OrderList from '../../../../components/OrderList'
+import Flashcards from '../../../../components/Flashcards'
+import ShortAnswer from '../../../../components/ShortAnswer'
 
 export function generateStaticParams() {
   // Optional pre-rendering; safe to leave empty in dev.
@@ -124,6 +127,18 @@ export default function LessonPage({ params }) {
             items={lesson.categorize.items}
             solution={lesson.categorize.solution}
           />
+        )}
+
+        {lesson.order && (
+          <OrderList title={lesson.order.title} items={lesson.order.items} solution={lesson.order.solution} />
+        )}
+
+        {lesson.flashcards && (
+          <Flashcards title={lesson.flashcards.title} cards={lesson.flashcards.cards} />
+        )}
+
+        {lesson.shortAnswer && (
+          <ShortAnswer prompt={lesson.shortAnswer.prompt} expectedKeywords={lesson.shortAnswer.expectedKeywords} sample={lesson.shortAnswer.sample} />
         )}
 
         {lesson.useCases && (

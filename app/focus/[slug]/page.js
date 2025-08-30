@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { getAreaBySlug } from '../../../data/topics'
+import FocusAreaProgress from '../../../components/FocusAreaProgress'
 
 export default function FocusIndex({ params }) {
   const area = getAreaBySlug(params.slug)
@@ -16,6 +17,7 @@ export default function FocusIndex({ params }) {
     <section>
       <h1>{area.title}</h1>
       <p>{area.description}</p>
+      <FocusAreaProgress areaSlug={area.slug} count={area.lessons.length} />
       <ol className="list">
         {area.lessons.map((l, i) => (
           <li key={l.title} className="list-item">
@@ -29,4 +31,3 @@ export default function FocusIndex({ params }) {
     </section>
   )
 }
-
