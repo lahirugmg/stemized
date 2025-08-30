@@ -15,6 +15,9 @@ import LessonProgress from '../../../../components/LessonProgress'
 import OrderList from '../../../../components/OrderList'
 import Flashcards from '../../../../components/Flashcards'
 import ShortAnswer from '../../../../components/ShortAnswer'
+import ConceptHighlighter from '../../../../components/ConceptHighlighter'
+import Callout from '../../../../components/Callout'
+import Reveal from '../../../../components/Reveal'
 
 export function generateStaticParams() {
   // Optional pre-rendering; safe to leave empty in dev.
@@ -41,7 +44,7 @@ export default function LessonPage({ params }) {
   const hasNext = idx < area.lessons.length - 1
 
   return (
-    <section>
+    <section data-theme={area.theme}>
       <div className="crumbs">
         <Link href="/">Home</Link>
         <span>/</span>
@@ -55,20 +58,30 @@ export default function LessonPage({ params }) {
         <p className="lede">{lesson.summary}</p>
         <LessonProgress areaSlug={area.slug} index={idx} />
         {lesson.story && (
-          <div className="card">
+          <div className="card interactive">
             <h2>Story</h2>
             <p>{lesson.story}</p>
           </div>
         )}
-        <div className="card">
+        <div className="card interactive">
           <h2>Concept</h2>
-          <p>{lesson.concept}</p>
+          {lesson.keywords ? (
+            <ConceptHighlighter text={lesson.concept} keywords={lesson.keywords} />
+          ) : (
+            <p>{lesson.concept}</p>
+          )}
         </div>
 
-        <div className="card">
+        <div className="card interactive">
           <h2>Try it</h2>
           <p>{lesson.exercise}</p>
         </div>
+
+        {lesson.solution && (
+          <Reveal label="Show sample solution">
+            {lesson.solution}
+          </Reveal>
+        )}
 
         {/* Optional visual/interactive blocks */}
         {lesson.timeline && (
@@ -129,6 +142,14 @@ export default function LessonPage({ params }) {
           />
         )}
 
+        {lesson.callouts && lesson.callouts.length > 0 && (
+          <div style={{ display:'grid', gap:'0.5rem' }}>
+            {lesson.callouts.map((c, i) => (
+              <Callout key={i} type={c.type} title={c.title}>{c.body}</Callout>
+            ))}
+          </div>
+        )}
+
         {lesson.order && (
           <OrderList title={lesson.order.title} items={lesson.order.items} solution={lesson.order.solution} />
         )}
@@ -158,7 +179,7 @@ export default function LessonPage({ params }) {
         )}
 
         {lesson.reflection && (
-          <div className="card">
+          <div className="card interactive">
             <h2>Reflect</h2>
             <p>{lesson.reflection}</p>
           </div>

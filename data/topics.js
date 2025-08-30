@@ -4,6 +4,8 @@ export const focusAreas = [
     title: 'Math Foundations',
     description: 'Key math building blocks, one small concept at a time.',
     tags: ['Algebra', 'Numbers', 'Geometry'],
+    color: '#ff6b6b',
+    theme: 'math',
     lessons: [
       {
         title: 'Order of Operations (PEMDAS)',
@@ -36,6 +38,40 @@ export const focusAreas = [
     title: 'Data Mining',
     description: 'Master core concepts through interactive visualizations and hands-on practice.',
     tags: ['Data Mining', 'Data Types', 'Attributes', 'Preprocessing', 'Similarity', 'Distance', 'Dimensionality', 'Correlation'],
+    color: '#4ecdc4',
+    theme: 'data',
+    modules: [
+      {
+        slug: 'core-concepts',
+        title: 'Module 1: Core Concepts & Motivation',
+        description: 'Why mine data, where it fits, and foundational data/attribute types.',
+        lessonIndexes: [0, 1, 2]
+      },
+      {
+        slug: 'data-prep',
+        title: 'Module 2: Data Preparation',
+        description: 'Cleaning, transforming, and preparing data before mining.',
+        lessonIndexes: [3]
+      },
+      {
+        slug: 'similarity-distance',
+        title: 'Module 3: Similarity & Distance',
+        description: 'Compare vectors and measure (dis)similarity for mining tasks.',
+        lessonIndexes: [4, 5]
+      },
+      {
+        slug: 'dimensionality-correlation',
+        title: 'Module 4: Dimensionality & Correlation',
+        description: 'Reduce dimensions and understand relationships among variables.',
+        lessonIndexes: [6, 7]
+      },
+      {
+        slug: 'case-study',
+        title: 'Module 5: Case Study',
+        description: 'Apply the pipeline end-to-end for churn.',
+        lessonIndexes: [8]
+      }
+    ],
     lessons: [
       {
         title: 'Introduction to Data Mining',
@@ -44,20 +80,23 @@ export const focusAreas = [
           'In 1995, a supermarket chain discovered that beer and diapers were frequently purchased together. This insight wasn\'t obvious—it required analyzing millions of transactions. Data mining turns raw data into actionable knowledge, helping businesses make smarter decisions and scientists discover new patterns.',
         concept:
           'Data mining is the process of discovering meaningful patterns, associations, and insights from large datasets. It combines statistics, machine learning, and database systems to extract knowledge that would be difficult or impossible to find manually. Key goals include prediction, description, and prescription.',
+        keywords: ['data mining', 'patterns', 'associations', 'prediction', 'description', 'prescription'],
         exercise:
           'Think of three everyday activities that generate data (e.g., online shopping, social media, fitness tracking). For each, identify one potential insight that data mining could uncover.',
+        solution:
+          'Examples: Online shopping → association rules for cross-sell; Social media → community detection for topic targeting; Fitness tracking → anomaly detection for sudden health changes.',
         reflection:
           'How might data mining change your daily life? What ethical considerations should guide its use?',
         visualization: 'DataGrowthChart',
         timeline: {
           title: 'Evolution of Data Mining',
-          events: [
-            { year: '1960s', event: 'Foundation of databases and statistics' },
-            { year: '1980s', event: 'Machine learning algorithms emerge' },
-            { year: '1990s', event: 'Data warehousing and OLAP' },
-            { year: '2000s', event: 'Big data and scalable algorithms' },
-            { year: '2010s', event: 'Deep learning and AI integration' },
-            { year: '2020s', event: 'Automated machine learning and ethics focus' }
+          items: [
+            { year: '1960s', label: 'Foundation of databases and statistics' },
+            { year: '1980s', label: 'Machine learning algorithms emerge' },
+            { year: '1990s', label: 'Data warehousing and OLAP' },
+            { year: '2000s', label: 'Big data and scalable algorithms' },
+            { year: '2010s', label: 'Deep learning and AI integration' },
+            { year: '2020s', label: 'Automated machine learning and ethics focus' }
           ]
         },
         useCases: {
@@ -123,10 +162,15 @@ export const focusAreas = [
         summary: 'Understanding the different forms data can take and their characteristics.',
         concept:
           'Data comes in various types: structured (databases, spreadsheets), semi-structured (XML, JSON), and unstructured (text, images, videos). By format: quantitative (numeric measurements) vs qualitative (categorical descriptions). By scale: nominal (categories), ordinal (ranked), interval (differences matter), ratio (true zero point). Understanding data types is crucial for choosing appropriate mining techniques.',
+        keywords: ['structured', 'semi-structured', 'unstructured', 'quantitative', 'qualitative', 'nominal', 'ordinal', 'interval', 'ratio'],
         exercise:
           'Classify these data examples: customer age (ratio), movie ratings (ordinal), product categories (nominal), temperature readings (interval), social media posts (unstructured).',
         reflection:
           'Why is it important to understand data types before mining? How might misclassifying data types affect analysis results?',
+        callouts: [
+          { type: 'info', title: 'Interval vs Ratio', body: 'Interval has no true zero (Celsius); Ratio has a true zero (Kelvin, age).' },
+          { type: 'tip', title: 'Choose Measures', body: 'Use appropriate similarity/distance based on scale (e.g., Hamming for nominal).' }
+        ],
         flow: {
           title: 'Data Type Hierarchy',
           steps: ['Data', 'Structured', 'Semi-structured', 'Unstructured']
@@ -193,6 +237,7 @@ export const focusAreas = [
         summary: 'Exploring how attributes (features) are measured and represented.',
         concept:
           'Attributes describe data objects and can be: discrete (finite values) or continuous (infinite range). By measurement: binary (yes/no), nominal (categories), ordinal (ranked), numeric (quantitative). Special types include asymmetric binary (presence-only) and ratio-scaled. Attribute types determine which distance/similarity measures and mining algorithms can be applied.',
+        keywords: ['binary', 'nominal', 'ordinal', 'numeric', 'discrete', 'continuous'],
         exercise:
           'For a customer dataset, identify attribute types: customer_id (nominal), age (ratio), income (ratio), education_level (ordinal), has_credit_card (binary), purchase_frequency (ratio).',
         reflection:
@@ -240,6 +285,7 @@ export const focusAreas = [
         summary: 'Preparing raw data for mining through cleaning and transformation.',
         concept:
           'Data preprocessing is crucial for mining success: aggregation (combining data), sampling (representative subsets), dimensionality reduction (removing irrelevant features), feature creation (engineering new attributes). Common issues: missing values, noise, outliers, inconsistent formats. Techniques include imputation, normalization, discretization, and feature selection.',
+        keywords: ['imputation', 'normalization', 'discretization', 'feature selection', 'outliers', 'scaling'],
         exercise:
           'Given a dataset with missing ages, design a preprocessing pipeline: 1) Handle missing values, 2) Normalize numeric features, 3) Encode categorical variables, 4) Remove outliers.',
         reflection:
@@ -572,6 +618,8 @@ export const focusAreas = [
     title: 'Science Essentials',
     description: 'Core ideas from physics and biology, made bite-sized.',
     tags: ['Physics', 'Biology'],
+    color: '#45b7d1',
+    theme: 'science',
     lessons: [
       {
         title: 'Newton\'s First Law',
@@ -596,6 +644,8 @@ export const focusAreas = [
     title: 'Coding Basics',
     description: 'Start programming by mastering a few core patterns.',
     tags: ['Logic', 'Algorithms'],
+    color: '#96ceb4',
+    theme: 'coding',
     lessons: [
       {
         title: 'Variables and Types',
@@ -618,5 +668,16 @@ export const focusAreas = [
 ]
 
 export function getAreaBySlug(slug) {
-  return focusAreas.find((a) => a.slug === slug)
+  const area = focusAreas.find((a) => a.slug === slug)
+  if (!area) return undefined
+  return area
+}
+
+export function getModule(areaSlug, moduleIndex) {
+  const area = getAreaBySlug(areaSlug)
+  if (!area || !area.modules) return undefined
+  const mod = area.modules[moduleIndex]
+  if (!mod) return undefined
+  const lessons = (mod.lessonIndexes || []).map((i) => area.lessons[i]).filter(Boolean)
+  return { ...mod, lessons }
 }
