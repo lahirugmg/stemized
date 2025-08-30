@@ -20,6 +20,10 @@ import ConceptHighlighter from '../../../../components/ConceptHighlighter'
 import Callout from '../../../../components/Callout'
 import Reveal from '../../../../components/Reveal'
 import ErrorBoundary from '../../../../components/ErrorBoundary'
+import PEMDASCalculator from '../../../../components/PEMDASCalculator'
+import DistributiveVisualizer from '../../../../components/DistributiveVisualizer'
+import EquationSolver from '../../../../components/EquationSolver'
+import MathPracticeGenerator from '../../../../components/MathPracticeGenerator'
 import { useKeyboardNavigation } from '../../../../hooks/useKeyboardNavigation'
 import { setProgress } from '../../../../lib/progress'
 
@@ -247,6 +251,30 @@ export default function LessonPageClient({ area, lesson, idx, totalLessons }) {
         {lesson.similarityPlayground && (
           <ErrorBoundary>
             <SimilarityPlayground />
+          </ErrorBoundary>
+        )}
+
+        {lesson.interactiveCalculator && (
+          <ErrorBoundary>
+            <PEMDASCalculator />
+          </ErrorBoundary>
+        )}
+
+        {lesson.distributiveVisualizer && (
+          <ErrorBoundary>
+            <DistributiveVisualizer />
+          </ErrorBoundary>
+        )}
+
+        {lesson.equationSolver && (
+          <ErrorBoundary>
+            <EquationSolver />
+          </ErrorBoundary>
+        )}
+
+        {lesson.practiceGenerator && (
+          <ErrorBoundary>
+            <MathPracticeGenerator />
           </ErrorBoundary>
         )}
 
