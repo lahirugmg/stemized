@@ -19,11 +19,14 @@ import ShortAnswer from '../../../../components/ShortAnswer'
 import ConceptHighlighter from '../../../../components/ConceptHighlighter'
 import Callout from '../../../../components/Callout'
 import Reveal from '../../../../components/Reveal'
-import ErrorBoundary from '../../../../components/ErrorBoundary'
 import PEMDASCalculator from '../../../../components/PEMDASCalculator'
 import DistributiveVisualizer from '../../../../components/DistributiveVisualizer'
 import EquationSolver from '../../../../components/EquationSolver'
 import MathPracticeGenerator from '../../../../components/MathPracticeGenerator'
+import ExpressionTree from '../../../../components/ExpressionTree'
+import AreaModelVisualizer from '../../../../components/AreaModelVisualizer'
+import NumberLineEquation from '../../../../components/NumberLineEquation'
+import ErrorBoundary from '../../../../components/ErrorBoundary'
 import { useKeyboardNavigation } from '../../../../hooks/useKeyboardNavigation'
 import { setProgress } from '../../../../lib/progress'
 
@@ -109,6 +112,43 @@ export default function LessonPageClient({ area, lesson, idx, totalLessons }) {
           <h2>Try it</h2>
           <p>{lesson.exercise}</p>
         </div>
+
+        {/* Math foundation specific visual aids */}
+        {lesson.interactiveCalculator && (
+          <ErrorBoundary>
+            <PEMDASCalculator />
+          </ErrorBoundary>
+        )}
+        {lesson.expressionTree && (
+          <ErrorBoundary>
+            <ExpressionTree />
+          </ErrorBoundary>
+        )}
+        {lesson.distributiveVisualizer && (
+          <ErrorBoundary>
+            <DistributiveVisualizer />
+          </ErrorBoundary>
+        )}
+        {lesson.areaModel && (
+          <ErrorBoundary>
+            <AreaModelVisualizer />
+          </ErrorBoundary>
+        )}
+        {lesson.equationSolver && (
+          <ErrorBoundary>
+            <EquationSolver />
+          </ErrorBoundary>
+        )}
+        {lesson.numberLine && (
+          <ErrorBoundary>
+            <NumberLineEquation />
+          </ErrorBoundary>
+        )}
+        {lesson.practiceGenerator && (
+          <ErrorBoundary>
+            <MathPracticeGenerator />
+          </ErrorBoundary>
+        )}
 
         {lesson.solution && (
           <Reveal label="Show sample solution">
@@ -251,30 +291,6 @@ export default function LessonPageClient({ area, lesson, idx, totalLessons }) {
         {lesson.similarityPlayground && (
           <ErrorBoundary>
             <SimilarityPlayground />
-          </ErrorBoundary>
-        )}
-
-        {lesson.interactiveCalculator && (
-          <ErrorBoundary>
-            <PEMDASCalculator />
-          </ErrorBoundary>
-        )}
-
-        {lesson.distributiveVisualizer && (
-          <ErrorBoundary>
-            <DistributiveVisualizer />
-          </ErrorBoundary>
-        )}
-
-        {lesson.equationSolver && (
-          <ErrorBoundary>
-            <EquationSolver />
-          </ErrorBoundary>
-        )}
-
-        {lesson.practiceGenerator && (
-          <ErrorBoundary>
-            <MathPracticeGenerator />
           </ErrorBoundary>
         )}
 
