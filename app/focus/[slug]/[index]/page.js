@@ -9,6 +9,9 @@ import UseCaseGrid from '../../../../components/UseCaseGrid'
 import FlowSteps from '../../../../components/FlowSteps'
 import Accordion from '../../../../components/Accordion'
 import BarChartMini from '../../../../components/BarChartMini'
+import MultiCategorySorter from '../../../../components/MultiCategorySorter'
+import SimilarityPlayground from '../../../../components/SimilarityPlayground'
+import LessonProgress from '../../../../components/LessonProgress'
 
 export function generateStaticParams() {
   // Optional pre-rendering; safe to leave empty in dev.
@@ -47,6 +50,7 @@ export default function LessonPage({ params }) {
       <article className="lesson">
         <h1>{lesson.title}</h1>
         <p className="lede">{lesson.summary}</p>
+        <LessonProgress areaSlug={area.slug} index={idx} />
         {lesson.story && (
           <div className="card">
             <h2>Story</h2>
@@ -94,11 +98,31 @@ export default function LessonPage({ params }) {
           />
         )}
 
-        {lesson.sorter && (
-          <CardSorter
-            prompt={lesson.sorter.prompt}
-            items={lesson.sorter.items}
-            solution={lesson.sorter.solution}
+        {lesson.sorter && (() => {
+          const keys = Object.keys(lesson.sorter.solution || {})
+          const isBinary = keys.length === 2 && keys.map(k => k.toLowerCase()).sort().join(',') === 'benefits,challenges'
+          return isBinary ? (
+            <CardSorter
+              prompt={lesson.sorter.prompt}
+              items={lesson.sorter.items}
+              solution={lesson.sorter.solution}
+            />
+          ) : (
+            <MultiCategorySorter
+              title={lesson.sorter.prompt}
+              categories={keys}
+              items={lesson.sorter.items}
+              solution={lesson.sorter.solution}
+            />
+          )
+        })()}
+
+        {lesson.categorize && (
+          <MultiCategorySorter
+            title={lesson.categorize.title}
+            categories={lesson.categorize.categories}
+            items={lesson.categorize.items}
+            solution={lesson.categorize.solution}
           />
         )}
 
@@ -123,6 +147,10 @@ export default function LessonPage({ params }) {
             <h2>Reflect</h2>
             <p>{lesson.reflection}</p>
           </div>
+        )}
+
+        {lesson.similarityPlayground && (
+          <SimilarityPlayground />
         )}
 
         <nav className="nav">
