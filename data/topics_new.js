@@ -87,35 +87,6 @@ export const focusAreas = [
           options: ['Prediction', 'Description', 'Data Storage', 'Prescription'],
           answerIndex: 2,
           hint: 'Data mining focuses on extracting insights, not just storing data.'
-        },
-        order: {
-          title: 'Order the CRISP-DM Phases',
-          items: [
-            'Data Preparation',
-            'Business Understanding',
-            'Modeling',
-            'Deployment',
-            'Evaluation',
-            'Data Understanding'
-          ],
-          solution: [
-            'Business Understanding',
-            'Data Understanding',
-            'Data Preparation',
-            'Modeling',
-            'Evaluation',
-            'Deployment'
-          ]
-        },
-        flashcards: {
-          title: 'Core Terms Flashcards',
-          cards: [
-            { front: 'Data Mining', back: 'Discovering useful, non-trivial patterns from data' },
-            { front: 'KDD', back: 'Knowledge Discovery in Databases (end-to-end process)' },
-            { front: 'CRISP-DM', back: 'Cross-Industry Standard Process for Data Mining lifecycle' },
-            { front: 'Predictive', back: 'Tasks that predict labels/values (classification/regression)' },
-            { front: 'Descriptive', back: 'Tasks that summarize structure (association/clustering)' }
-          ]
         }
       },
       {
@@ -302,11 +273,6 @@ export const focusAreas = [
             { title: 'E-commerce', desc: 'Merging customer data, encoding product categories' },
             { title: 'Social Media', desc: 'Filtering spam, normalizing text features' }
           ]
-        },
-        shortAnswer: {
-          prompt: 'You have a customer dataset with missing age, skewed income, and categorical city fields. Outline a safe preprocessing plan.',
-          expectedKeywords: ['imputation', 'median', 'scaling', 'standardization', 'one-hot', 'outliers', 'train/validation split'],
-          sample: 'Impute age (median), standardize or log-transform skewed income, one-hot encode city, treat outliers (winsorize/clip), avoid leakage by fitting scalers on train only; finalize with a train/validation split.'
         },
         quiz: {
           question: 'Which preprocessing technique reduces the number of features while preserving important information?',
@@ -574,7 +540,7 @@ export const focusAreas = [
     tags: ['Physics', 'Biology'],
     lessons: [
       {
-        title: 'Newton\'s First Law',
+        title: 'Newton's First Law',
         summary: 'Objects keep their motion unless acted on.',
         concept:
           'An object in motion stays in motion (and at rest stays at rest) unless acted on by a net external force.',
