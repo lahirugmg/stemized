@@ -36,6 +36,38 @@ export const focusAreas = [
     title: 'Data Mining',
     description: 'Master core concepts through interactive visualizations and hands-on practice.',
     tags: ['Data Mining', 'Data Types', 'Attributes', 'Preprocessing', 'Similarity', 'Distance', 'Dimensionality', 'Correlation'],
+    modules: [
+      {
+        slug: 'core-concepts',
+        title: 'Module 1: Core Concepts & Motivation',
+        description: 'Why mine data, where it fits, and foundational data/attribute types.',
+        lessonIndexes: [0, 1, 2]
+      },
+      {
+        slug: 'data-prep',
+        title: 'Module 2: Data Preparation',
+        description: 'Cleaning, transforming, and preparing data before mining.',
+        lessonIndexes: [3]
+      },
+      {
+        slug: 'similarity-distance',
+        title: 'Module 3: Similarity & Distance',
+        description: 'Compare vectors and measure (dis)similarity for mining tasks.',
+        lessonIndexes: [4, 5]
+      },
+      {
+        slug: 'dimensionality-correlation',
+        title: 'Module 4: Dimensionality & Correlation',
+        description: 'Reduce dimensions and understand relationships among variables.',
+        lessonIndexes: [6, 7]
+      },
+      {
+        slug: 'case-study',
+        title: 'Module 5: Case Study',
+        description: 'Apply the pipeline end-to-end for churn.',
+        lessonIndexes: [8]
+      }
+    ],
     lessons: [
       {
         title: 'Introduction to Data Mining',
@@ -618,5 +650,16 @@ export const focusAreas = [
 ]
 
 export function getAreaBySlug(slug) {
-  return focusAreas.find((a) => a.slug === slug)
+  const area = focusAreas.find((a) => a.slug === slug)
+  if (!area) return undefined
+  return area
+}
+
+export function getModule(areaSlug, moduleIndex) {
+  const area = getAreaBySlug(areaSlug)
+  if (!area || !area.modules) return undefined
+  const mod = area.modules[moduleIndex]
+  if (!mod) return undefined
+  const lessons = (mod.lessonIndexes || []).map((i) => area.lessons[i]).filter(Boolean)
+  return { ...mod, lessons }
 }
