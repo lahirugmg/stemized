@@ -4,6 +4,7 @@ import llmEngineering from './areas/llm-engineering'
 import physicsBasics from './areas/physics-basics'
 import biologyBasics from './areas/biology-basics'
 import codingBasics from './areas/coding-basics'
+import humanBodyKids from './areas/human-body-kids'
 
 export const focusAreas = [
   mathFoundations,
@@ -11,7 +12,8 @@ export const focusAreas = [
   dataMining,
   physicsBasics,
   biologyBasics,
-  codingBasics
+  codingBasics,
+  humanBodyKids
 ].filter(Boolean)
 
 export function getAreaBySlug(slug) {
@@ -28,4 +30,3 @@ export function getModule(areaSlug, moduleIndex) {
   const lessons = (mod.lessonIndexes || []).map((i) => area.lessons[i]).filter(Boolean)
   return { ...mod, lessons }
 }
-
