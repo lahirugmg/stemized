@@ -94,6 +94,40 @@ export const focusAreas = [
               'Model/insight drift over time'
             ]
           }
+        },
+        useCases: {
+          title: 'Why Mine Data? Applications',
+          items: [
+            { title: 'Market Basket & Cross‑Sell', desc: 'Find co‑purchases to optimize layout/bundles.' },
+            { title: 'Churn & Retention', desc: 'Predict attrition and trigger targeted saves.' },
+            { title: 'Fraud & Anomalies', desc: 'Detect unusual behavior in real‑time streams.' },
+            { title: 'Recommenders', desc: 'Personalize content/products from implicit signals.' },
+            { title: 'Web & Clickstream', desc: 'Mine navigation paths to reduce drop‑off.' },
+            { title: 'Healthcare & Bio', desc: 'Assist diagnosis and triage (with guardrails).' }
+          ]
+        },
+        flow: {
+          title: 'From Data to Decisions',
+          steps: ['Data', 'Prep', 'Patterns', 'Knowledge', 'Decisions', 'Value']
+        },
+        terms: {
+          title: 'Key Terms (Tap to Expand)',
+          items: [
+            { term: 'Data Mining', def: 'Discovering useful, non‑trivial patterns from data to support decisions.' },
+            { term: 'KDD', def: 'End‑to‑end knowledge discovery process around data mining.' },
+            { term: 'CRISP‑DM', def: 'Lifecycle: business → data → prep → modeling → eval → deploy.' },
+            { term: 'Predictive vs Descriptive', def: 'Predictive forecasts labels; descriptive explains structure/associations.' },
+            { term: 'Supervised vs Unsupervised', def: 'Supervised uses labels; unsupervised finds structure without labels.' }
+          ]
+        },
+        growth: {
+          title: 'Why Now? Data Growth',
+          bars: [
+            { label: '1990s', caption: 'MB → GB', value: 1 },
+            { label: '2000s', caption: 'GB → TB', value: 3 },
+            { label: '2010s', caption: 'TB → PB', value: 6 },
+            { label: '2020s', caption: 'PB → EB/ZB', value: 10 }
+          ]
         }
       },
       {

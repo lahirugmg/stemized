@@ -5,6 +5,10 @@ import ConceptCheck from '../../../../components/ConceptCheck'
 import CardSorter from '../../../../components/CardSorter'
 import DataGrowthChart from '../../../../components/DataGrowthChart'
 import MarketBasketSimulator from '../../../../components/MarketBasketSimulator'
+import UseCaseGrid from '../../../../components/UseCaseGrid'
+import FlowSteps from '../../../../components/FlowSteps'
+import Accordion from '../../../../components/Accordion'
+import BarChartMini from '../../../../components/BarChartMini'
 
 export function generateStaticParams() {
   // Optional pre-rendering; safe to leave empty in dev.
@@ -96,6 +100,22 @@ export default function LessonPage({ params }) {
             items={lesson.sorter.items}
             solution={lesson.sorter.solution}
           />
+        )}
+
+        {lesson.useCases && (
+          <UseCaseGrid title={lesson.useCases.title} items={lesson.useCases.items} />
+        )}
+
+        {lesson.flow && (
+          <FlowSteps title={lesson.flow.title} steps={lesson.flow.steps} />
+        )}
+
+        {lesson.terms && (
+          <Accordion title={lesson.terms.title} items={lesson.terms.items} />
+        )}
+
+        {lesson.growth && (
+          <BarChartMini title={lesson.growth.title} bars={lesson.growth.bars} />
         )}
 
         {lesson.reflection && (
