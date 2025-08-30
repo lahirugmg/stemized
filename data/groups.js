@@ -9,7 +9,7 @@ export const groups = [
     shortTitle: 'Math',
     description: 'Start with core building blocks, then level up into algebra mastery.',
     color: '#3b82f6',
-    areas: ['math-foundations', 'algebra-made-simple']
+  areas: ['math-foundations', 'algebra-made-simple', 'geometry-basics']
   },
   {
     slug: 'life-sciences',

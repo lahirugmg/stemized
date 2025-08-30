@@ -1,7 +1,6 @@
 "use client"
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
-import { groups } from '../data/groups'
 import { getAreaProgress, getLastVisitedLesson } from '../lib/progress'
 
 export default function FocusCard({ area }) {
@@ -23,7 +22,6 @@ export default function FocusCard({ area }) {
     coding: { borderColor: '#96ceb4' }
   }
 
-  const inGroups = groups.filter(g => g.areas.includes(area.slug))
   const isStarted = mounted && progress.completed > 0
   const isCompleted = mounted && progress.percentage === 100
   const continueHref = isStarted ? `/focus/${area.slug}/${lastLesson}` : `/focus/${area.slug}/0`
@@ -55,26 +53,7 @@ export default function FocusCard({ area }) {
         </div>
       )}
 
-      <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '0.75rem' }}>
-        <h2 style={{ color: area.color, margin: 0 }}>{area.title}</h2>
-        {inGroups.length > 0 && (
-          <div style={{ display: 'flex', gap: '0.35rem', flexWrap: 'wrap' }}>
-            {inGroups.map(g => (
-              <span key={g.slug} style={{
-                background: g.color + '15',
-                color: g.color,
-                padding: '0.3rem 0.6rem',
-                borderRadius: '999px',
-                fontSize: '0.65rem',
-                fontWeight: 600,
-                letterSpacing: '0.5px',
-                border: '1px solid ' + g.color + '40',
-                boxShadow: '0 1px 3px rgba(0,0,0,0.1)'
-              }}>{g.shortTitle}</span>
-            ))}
-          </div>
-        )}
-      </div>
+      <h2 style={{ color: area.color, margin: 0 }}>{area.title}</h2>
       
       <p style={{ marginTop: '0.5rem' }}>{area.description}</p>
       

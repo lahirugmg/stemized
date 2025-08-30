@@ -1,4 +1,5 @@
 import mathFoundations from './areas/math-foundations'
+import geometryBasics from './areas/geometry-basics'
 import dataMining from './areas/data-mining'
 import llmEngineering from './areas/llm-engineering'
 import physicsBasics from './areas/physics-basics'
@@ -9,13 +10,14 @@ import algebraMadeSimple from './areas/algebra-made-simple'
 
 export const focusAreas = [
   mathFoundations,
+  algebraMadeSimple,
+  geometryBasics,
   llmEngineering,
   dataMining,
   physicsBasics,
   biologyBasics,
   codingBasics,
-  humanBodyKids,
-  algebraMadeSimple
+  humanBodyKids
 ].filter(Boolean)
 
 export function getAreaBySlug(slug) {

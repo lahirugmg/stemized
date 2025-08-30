@@ -5,7 +5,7 @@ import { groups } from '../data/groups'
 import { LoadingGrid } from '../components/LoadingCard'
 import { focusAreas } from '../data'
 
-function FocusAreaGrid() {
+function GroupedFocusAreas() {
   const [mounted, setMounted] = useState(false)
   
   useEffect(() => {
@@ -13,14 +13,86 @@ function FocusAreaGrid() {
   }, [])
 
   if (!mounted) {
-    return <LoadingGrid count={8} />
+    return (
+      <div style={{ display: 'grid', gap: '1.25rem' }}>
+        {groups.map(group => (
+          <div key={group.slug} className="card" style={{ padding: '1.25rem 1.5rem', borderLeft: `4px solid ${group.color}` }}>
+            <div style={{ marginBottom: '1rem' }}>
+              <h2 style={{ margin: '0 0 0.35rem 0', fontSize: '1.15rem', color: 'var(--text)' }}>{group.title}</h2>
+              <p style={{ margin: 0, fontSize: '0.9rem', color: 'var(--muted)' }}>{group.description}</p>
+            </div>
+            <LoadingGrid count={group.areas.length} />
+          </div>
+        ))}
+      </div>
+    )
   }
 
+  // Get ungrouped areas (areas not in any group)
+  const groupedAreaSlugs = new Set(groups.flatMap(g => g.areas))
+  const ungroupedAreas = focusAreas.filter(area => !groupedAreaSlugs.has(area.slug))
+
   return (
-    <div className="grid">
-      {focusAreas.map((area) => (
-        <FocusCard key={area.slug} area={area} />
-      ))}
+    <div style={{ display: 'grid', gap: '1.5rem' }}>
+      {/* Grouped areas */}
+      {groups.map(group => {
+        const groupAreas = group.areas.map(slug => focusAreas.find(area => area.slug === slug)).filter(Boolean)
+        
+        return (
+          <div key={group.slug} className="card hover" style={{ 
+            padding: '1.25rem 1.5rem', 
+            borderLeft: `4px solid ${group.color}`,
+            background: 'var(--card)'
+          }}>
+            <div style={{ marginBottom: '1.25rem' }}>
+              <h2 style={{ 
+                margin: '0 0 0.5rem 0', 
+                fontSize: '1.25rem', 
+                color: group.color,
+                fontWeight: 600
+              }}>
+                {group.title}
+              </h2>
+              <p style={{ 
+                margin: 0, 
+                fontSize: '0.95rem', 
+                color: 'var(--muted)',
+                lineHeight: 1.5
+              }}>
+                {group.description}
+              </p>
+            </div>
+            
+            <div className="grid" style={{ 
+              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+              gap: '1rem'
+            }}>
+              {groupAreas.map(area => (
+                <FocusCard key={area.slug} area={area} />
+              ))}
+            </div>
+          </div>
+        )
+      })}
+      
+      {/* Ungrouped areas */}
+      {ungroupedAreas.length > 0 && (
+        <div>
+          <h2 style={{ 
+            margin: '0 0 1rem 0', 
+            fontSize: '1.25rem', 
+            color: 'var(--text)',
+            fontWeight: 600
+          }}>
+            Other Areas
+          </h2>
+          <div className="grid">
+            {ungroupedAreas.map(area => (
+              <FocusCard key={area.slug} area={area} />
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   )
 }
@@ -32,51 +104,21 @@ export default function Page() {
         <h1>Pick a focus area</h1>
         <p>Learn STEM by focusing on one area at a time. Start with a topic below and enjoy interactive learning with colors and animations.</p>
       </div>
-      {/* Grouped learning paths (e.g., Math) */}
-      <div style={{ marginBottom: '2.5rem', display: 'grid', gap: '1.25rem' }}>
-        {groups.map(group => (
-          <div key={group.slug} className="card hover" style={{ padding: '1.25rem 1.5rem', borderLeft: `4px solid ${group.color}` }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '1rem' }}>
-              <div>
+      
+      <Suspense fallback={
+        <div style={{ display: 'grid', gap: '1.25rem' }}>
+          {groups.map(group => (
+            <div key={group.slug} className="card" style={{ padding: '1.25rem 1.5rem', borderLeft: `4px solid ${group.color}` }}>
+              <div style={{ marginBottom: '1rem' }}>
                 <h2 style={{ margin: '0 0 0.35rem 0', fontSize: '1.15rem', color: 'var(--text)' }}>{group.title}</h2>
                 <p style={{ margin: 0, fontSize: '0.9rem', color: 'var(--muted)' }}>{group.description}</p>
               </div>
-              <div style={{ display: 'flex', gap: '0.4rem' }}>
-                {group.areas.map(slug => (
-                  <span key={slug} style={{
-                    background: group.color + '10',
-                    color: group.color,
-                    padding: '0.35rem 0.6rem',
-                    borderRadius: '8px',
-                    fontSize: '0.65rem',
-                    fontWeight: 600,
-                    letterSpacing: '0.5px'
-                  }}>{slug.replace(/-/g,' ')}</span>
-                ))}
-              </div>
+              <LoadingGrid count={group.areas.length} />
             </div>
-            <div style={{ marginTop: '0.9rem', display: 'flex', flexWrap: 'wrap', gap: '0.6rem' }}>
-              {group.areas.map(slug => {
-                const a = focusAreas.find(f => f.slug === slug)
-                if (!a) return null
-                return (
-                  <a key={slug} href={`#area-${slug}`} style={{
-                    textDecoration: 'none',
-                    fontSize: '0.75rem',
-                    background: 'var(--surface)',
-                    padding: '0.4rem 0.65rem',
-                    borderRadius: '6px',
-                    border: '1px solid var(--border)',
-                    color: 'var(--text)'
-                  }}>{a.title}</a>
-                )
-              })}
-            </div>
-          </div>
-        ))}
-      </div>
-      <Suspense fallback={<LoadingGrid count={8} />}>
-        <FocusAreaGrid />
+          ))}
+        </div>
+      }>
+        <GroupedFocusAreas />
       </Suspense>
     </section>
   )
