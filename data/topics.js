@@ -19,7 +19,7 @@ export const focusAreas = [
         concept:
           'The distributive property lets you expand and simplify expressions by multiplying each term inside parentheses.',
         exercise:
-          'Expand and simplify 3(x + 4) − 2(x − 1).' 
+          'Expand and simplify 3(x + 4) − 2(x − 1).'
       },
       {
         title: 'Linear Equations',
@@ -49,6 +49,17 @@ export const focusAreas = [
         reflection:
           'How might data mining change your daily life? What ethical considerations should guide its use?',
         visualization: 'DataGrowthChart',
+        timeline: {
+          title: 'Evolution of Data Mining',
+          events: [
+            { year: '1960s', event: 'Foundation of databases and statistics' },
+            { year: '1980s', event: 'Machine learning algorithms emerge' },
+            { year: '1990s', event: 'Data warehousing and OLAP' },
+            { year: '2000s', event: 'Big data and scalable algorithms' },
+            { year: '2010s', event: 'Deep learning and AI integration' },
+            { year: '2020s', event: 'Automated machine learning and ethics focus' }
+          ]
+        },
         useCases: {
           title: 'Data Mining Applications',
           items: [
@@ -58,6 +69,17 @@ export const focusAreas = [
             { title: 'Marketing', desc: 'Customer segmentation and targeted campaigns' },
             { title: 'Manufacturing', desc: 'Quality control and predictive maintenance' },
             { title: 'Social Networks', desc: 'Community detection and trend analysis' }
+          ]
+        },
+        terms: {
+          title: 'Key Data Mining Terms',
+          items: [
+            { term: 'Pattern Discovery', def: 'Finding regularities and trends in data' },
+            { term: 'Knowledge Discovery', def: 'Extracting useful knowledge from data' },
+            { term: 'Predictive Modeling', def: 'Building models to forecast future outcomes' },
+            { term: 'Descriptive Modeling', def: 'Summarizing data characteristics and relationships' },
+            { term: 'Big Data', def: 'Large, complex datasets that traditional methods can\'t handle' },
+            { term: 'Data Mining vs ML', def: 'Data mining discovers patterns; ML applies them to predictions' }
           ]
         },
         quiz: {
@@ -106,6 +128,29 @@ export const focusAreas = [
               'Education level'
             ]
           }
+        },
+        terms: {
+          title: 'Data Type Categories',
+          items: [
+            { term: 'Structured Data', def: 'Organized data with clear schema (databases, spreadsheets)' },
+            { term: 'Semi-structured', def: 'Partial organization with some structure (XML, JSON)' },
+            { term: 'Unstructured', def: 'No predefined structure (text, images, videos)' },
+            { term: 'Quantitative', def: 'Numeric data that can be measured and counted' },
+            { term: 'Qualitative', def: 'Categorical data describing qualities or characteristics' },
+            { term: 'Nominal Scale', def: 'Categories without inherent order (colors, names)' },
+            { term: 'Ordinal Scale', def: 'Ordered categories without fixed intervals (ratings)' },
+            { term: 'Interval Scale', def: 'Ordered with meaningful differences but no true zero' },
+            { term: 'Ratio Scale', def: 'Ordered with meaningful differences and true zero point' }
+          ]
+        },
+        useCases: {
+          title: 'Data Types in Practice',
+          items: [
+            { title: 'E-commerce', desc: 'Product catalogs (structured) + customer reviews (unstructured)' },
+            { title: 'Healthcare', desc: 'Patient records (structured) + medical images (unstructured)' },
+            { title: 'Social Media', desc: 'User profiles (semi-structured) + posts (unstructured)' },
+            { title: 'Finance', desc: 'Transaction logs (structured) + market news (unstructured)' }
+          ]
         },
         quiz: {
           question: 'Which data type has a true zero point and allows for meaningful ratios?',
@@ -207,6 +252,28 @@ export const focusAreas = [
             ]
           }
         },
+        terms: {
+          title: 'Preprocessing Techniques',
+          items: [
+            { term: 'Data Cleaning', def: 'Removing noise, handling missing values, correcting inconsistencies' },
+            { term: 'Data Integration', def: 'Combining data from multiple sources into coherent store' },
+            { term: 'Data Transformation', def: 'Normalizing, aggregating, generalizing data' },
+            { term: 'Data Reduction', def: 'Reducing data size while preserving information' },
+            { term: 'Feature Engineering', def: 'Creating new features from existing data' },
+            { term: 'Imputation', def: 'Filling missing values using statistical methods' },
+            { term: 'Normalization', def: 'Scaling features to comparable ranges' },
+            { term: 'Discretization', def: 'Converting continuous features to discrete categories' }
+          ]
+        },
+        useCases: {
+          title: 'Preprocessing in Different Domains',
+          items: [
+            { title: 'Finance', desc: 'Handling missing transaction data, normalizing amounts' },
+            { title: 'Healthcare', desc: 'Cleaning patient records, handling outliers in measurements' },
+            { title: 'E-commerce', desc: 'Merging customer data, encoding product categories' },
+            { title: 'Social Media', desc: 'Filtering spam, normalizing text features' }
+          ]
+        },
         quiz: {
           question: 'Which preprocessing technique reduces the number of features while preserving important information?',
           options: ['Normalization', 'Imputation', 'Dimensionality reduction', 'Discretization'],
@@ -233,6 +300,38 @@ export const focusAreas = [
             { term: 'Euclidean Distance', def: 'Straight-line distance, sensitive to scale differences' },
             { term: 'Manhattan Distance', def: 'Sum of absolute differences, good for grid-like data' }
           ]
+        },
+        useCases: {
+          title: 'Similarity in Applications',
+          items: [
+            { title: 'Recommendation Systems', desc: 'Finding similar users/items using cosine similarity' },
+            { title: 'Document Analysis', desc: 'Comparing text documents with Jaccard coefficient' },
+            { title: 'Customer Segmentation', desc: 'Grouping similar customers using distance measures' },
+            { title: 'Image Recognition', desc: 'Finding similar images using feature vector comparison' }
+          ]
+        },
+        sorter: {
+          prompt: 'Match similarity measures to their best use cases.',
+          items: [
+            'Cosine similarity',
+            'Jaccard coefficient',
+            'Pearson correlation',
+            'Euclidean distance',
+            'Manhattan distance'
+          ],
+          solution: {
+            'Text/Document Analysis': [
+              'Cosine similarity',
+              'Jaccard coefficient'
+            ],
+            'Linear Relationships': [
+              'Pearson correlation'
+            ],
+            'Geometric Distance': [
+              'Euclidean distance',
+              'Manhattan distance'
+            ]
+          }
         },
         quiz: {
           question: 'Which similarity measure is most appropriate for comparing text documents?',
@@ -316,6 +415,46 @@ export const focusAreas = [
             { term: 'Correlation Matrix', def: 'Table showing correlations between all variable pairs' }
           ]
         },
+        useCases: {
+          title: 'Correlation in Practice',
+          items: [
+            { title: 'Finance', desc: 'Stock price correlations, risk factor analysis' },
+            { title: 'Marketing', desc: 'Customer behavior correlations, campaign effectiveness' },
+            { title: 'Healthcare', desc: 'Disease-symptom correlations, treatment outcomes' },
+            { title: 'Climate Science', desc: 'Weather pattern correlations, environmental studies' }
+          ]
+        },
+        sorter: {
+          prompt: 'Classify correlation strengths and directions.',
+          items: [
+            'r = 0.9 (strong positive)',
+            'r = -0.7 (moderate negative)',
+            'r = 0.2 (weak positive)',
+            'r = -0.95 (very strong negative)',
+            'r = 0.0 (no correlation)',
+            'r = 0.5 (moderate positive)'
+          ],
+          solution: {
+            'Strong Positive': [
+              'r = 0.9 (strong positive)'
+            ],
+            'Moderate Positive': [
+              'r = 0.5 (moderate positive)'
+            ],
+            'Weak Positive': [
+              'r = 0.2 (weak positive)'
+            ],
+            'Strong Negative': [
+              'r = -0.95 (very strong negative)'
+            ],
+            'Moderate Negative': [
+              'r = -0.7 (moderate negative)'
+            ],
+            'No Correlation': [
+              'r = 0.0 (no correlation)'
+            ]
+          }
+        },
         quiz: {
           question: 'Which correlation measure is most appropriate for ordinal data?',
           options: ['Pearson correlation', 'Spearman correlation', 'Kendall correlation', 'Covariance'],
@@ -324,12 +463,73 @@ export const focusAreas = [
         }
       },
       {
+        title: 'Data Mining Ethics and Privacy',
+        summary: 'Understanding the ethical implications and privacy concerns in data mining.',
+        concept:
+          'Data mining raises important ethical questions: privacy invasion, algorithmic bias, consent, transparency, and societal impact. Key principles include: respect for persons, beneficence, justice, and respect for law. Privacy-preserving techniques like differential privacy and federated learning help balance utility with protection.',
+        exercise:
+          'Analyze a data mining project scenario: 1) Identify potential privacy risks, 2) Propose mitigation strategies, 3) Consider stakeholder impacts.',
+        reflection:
+          'How can data mining be conducted responsibly? What are the consequences of unethical data practices?',
+        terms: {
+          title: 'Ethics and Privacy Concepts',
+          items: [
+            { term: 'Differential Privacy', def: 'Adding noise to protect individual privacy while preserving statistical accuracy' },
+            { term: 'Algorithmic Bias', def: 'Systematic errors in algorithmic decisions affecting certain groups' },
+            { term: 'Right to Explanation', def: 'User right to understand automated decision-making processes' },
+            { term: 'Data Minimization', def: 'Collecting only necessary data for the intended purpose' },
+            { term: 'Federated Learning', def: 'Training models across decentralized devices without sharing raw data' },
+            { term: 'Informed Consent', def: 'Clear understanding and agreement to data collection and use' }
+          ]
+        },
+        useCases: {
+          title: 'Ethical Data Mining Applications',
+          items: [
+            { title: 'Healthcare', desc: 'Patient data analysis with strict privacy controls' },
+            { title: 'Criminal Justice', desc: 'Risk assessment tools with bias mitigation' },
+            { title: 'Social Services', desc: 'Fraud detection while protecting vulnerable populations' },
+            { title: 'Education', desc: 'Learning analytics respecting student privacy rights' }
+          ]
+        },
+        sorter: {
+          prompt: 'Categorize these scenarios by ethical concern level.',
+          items: [
+            'Personalized advertising using browsing history',
+            'Medical diagnosis using patient records without consent',
+            'Traffic prediction using anonymized location data',
+            'Credit scoring using protected characteristics',
+            'Fraud detection in financial transactions',
+            'Social media sentiment analysis for public opinion'
+          ],
+          solution: {
+            'High Ethical Concern': [
+              'Medical diagnosis using patient records without consent',
+              'Credit scoring using protected characteristics'
+            ],
+            'Moderate Ethical Concern': [
+              'Personalized advertising using browsing history'
+            ],
+            'Low Ethical Concern': [
+              'Traffic prediction using anonymized location data',
+              'Fraud detection in financial transactions',
+              'Social media sentiment analysis for public opinion'
+            ]
+          }
+        },
+        quiz: {
+          question: 'Which technique helps protect individual privacy while allowing data analysis?',
+          options: ['Data encryption', 'Differential privacy', 'Data deletion', 'User authentication'],
+          answerIndex: 1,
+          hint: 'This technique adds controlled noise to prevent identification.'
+        }
+      },
+      {
         title: 'Mini Case Study: Churn',
         summary: 'From raw data to an actionable churn playbook.',
         concept:
           'Frame the objective, explore features, try baseline models, evaluate pragmatically, and connect insights to actions (e.g., retention offers).',
         exercise:
-          'Write a three-bullet “Next best action” based on a hypothetical churn model.'
+          'Write a three-bullet "Next best action" based on a hypothetical churn model.'
       }
     ]
   },
@@ -340,7 +540,7 @@ export const focusAreas = [
     tags: ['Physics', 'Biology'],
     lessons: [
       {
-        title: 'Newton’s First Law',
+        title: 'Newton\'s First Law',
         summary: 'Objects keep their motion unless acted on.',
         concept:
           'An object in motion stays in motion (and at rest stays at rest) unless acted on by a net external force.',
