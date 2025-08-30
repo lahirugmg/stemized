@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { getAreaBySlug } from '../../../../data/topics'
+import { getAreaBySlug } from '../../../../data'
 import Timeline from '../../../../components/Timeline'
 import ConceptCheck from '../../../../components/ConceptCheck'
 import CardSorter from '../../../../components/CardSorter'

@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { getAreaBySlug, getModule } from '../../../../../data/topics'
+import { getAreaBySlug, getModule } from '../../../../../data'
 
 export default function ModuleIndex({ params }) {
   const { slug, m } = params
@@ -38,4 +38,3 @@ export default function ModuleIndex({ params }) {
     </section>
   )
 }
-

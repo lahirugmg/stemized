@@ -1,5 +1,5 @@
 import FocusCard from '../components/FocusCard'
-import { focusAreas } from '../data/topics'
+import { focusAreas } from '../data'
 
 export default function Page() {
   return (
@@ -16,4 +16,3 @@ export default function Page() {
     </section>
   )
 }
-
