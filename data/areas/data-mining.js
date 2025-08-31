@@ -2,7 +2,7 @@ const area = {
   slug: 'data-mining',
   title: 'Data Mining',
   description: 'Master core concepts through interactive visualizations and hands-on practice.',
-  tags: ['Data Mining', 'Data Types', 'Attributes', 'Preprocessing', 'Similarity', 'Distance', 'Dimensionality', 'Correlation'],
+  tags: ['Data Mining', 'Data Types', 'Attributes', 'Preprocessing', 'Similarity', 'Distance', 'Dimensionality', 'Correlation', 'Classification', 'Decision Trees', 'Evaluation'],
   color: '#4ecdc4',
   theme: 'data',
   modules: [
@@ -13,28 +13,34 @@ const area = {
       lessonIndexes: [0, 1, 2]
     },
     {
+      slug: 'classification-basics',
+      title: 'Module 2: Existing Techniques — Classification',
+      description: 'Decision trees, split criteria, impurity, evaluation, and generalization.',
+      lessonIndexes: [10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+    },
+    {
       slug: 'data-prep',
-      title: 'Module 2: Data Preparation',
+      title: 'Module 3: Data Preparation',
       description: 'Cleaning, transforming, and preparing data before mining.',
       lessonIndexes: [3]
     },
     {
       slug: 'similarity-distance',
-      title: 'Module 3: Similarity & Distance',
+      title: 'Module 4: Similarity & Distance',
       description: 'Compare vectors and measure (dis)similarity for mining tasks.',
       lessonIndexes: [4, 5]
     },
     {
       slug: 'dimensionality-correlation',
-      title: 'Module 4: Dimensionality & Correlation',
+      title: 'Module 5: Dimensionality & Correlation',
       description: 'Reduce dimensions and understand relationships among variables.',
       lessonIndexes: [6, 7]
     },
     {
       slug: 'case-study',
-      title: 'Module 5: Case Study',
+      title: 'Module 6: Case Study',
       description: 'Apply the pipeline end-to-end for churn.',
-      lessonIndexes: [8]
+      lessonIndexes: [9]
     }
   ],
   lessons: [
@@ -482,6 +488,87 @@ const area = {
         'Frame the objective, explore features, try baseline models, evaluate pragmatically, and connect insights to actions (e.g., retention offers).',
       exercise:
         'Write a three-bullet "Next best action" based on a hypothetical churn model.'
+    },
+    // Module 2: Existing Techniques — Classification (from content/module2 slides)
+    {
+      title: 'Introduction to Classification',
+      summary: 'What classification is and where it applies in data mining.',
+      concept:
+        'Classification assigns items to predefined categories based on input features. It underpins tasks like spam detection, diagnosis, and credit approval. Core ideas include model training on labeled data, decision boundaries, and evaluating performance on unseen data.',
+      exercise:
+        'List three real-world classification tasks and their possible classes (labels).'
+    },
+    {
+      title: 'Decision Trees Basics',
+      summary: 'Intuition and structure of decision tree classifiers.',
+      concept:
+        'A decision tree splits data by asking feature-based questions, forming a tree of decisions that leads to class predictions at leaves. Advantages: interpretability and fast inference; drawbacks: overfitting without proper control and instability to small data changes.',
+      exercise:
+        'Sketch a tiny decision tree for loan approval using features: income (high/low), credit score (good/bad).'
+    },
+    {
+      title: 'Split Tests and Conditions',
+      summary: 'How trees choose questions to partition the data.',
+      concept:
+        'Test conditions define how a node splits: for numeric features, thresholds like x ≤ t; for categorical, membership tests. Good splits create purer child nodes, guided by impurity-based criteria like Gini or information gain.',
+      exercise:
+        'Given a binary feature and a numeric feature, propose one test for each that could split a dataset.'
+    },
+    {
+      title: 'Node Impurity: Gini Index',
+      summary: 'Measuring class mixture to guide better splits.',
+      concept:
+        'Gini index quantifies impurity as 1 − Σ p(c)² over classes. The split score is the weighted sum of child impurities; we prefer the split with the lowest weighted impurity. Gini is simple and works well with CART-style trees.',
+      exercise:
+        'Compute Gini for a node with class counts [8 positive, 2 negative]. Then for [5,5]. Which is purer and why?'
+    },
+    {
+      title: 'Node Impurity: Entropy & Information Gain',
+      summary: 'Information-theoretic impurity and choosing informative splits.',
+      concept:
+        'Entropy H = −Σ p(c) log₂ p(c) captures uncertainty. Information gain compares parent entropy to the weighted child entropy; higher gain means a more informative split. Use gain ratio to mitigate bias toward many-valued features.',
+      exercise:
+        'For a binary node with p=0.7 positive, compute entropy. Intuitively compare to p=0.5.'
+    },
+    {
+      title: 'Stopping Criteria for Trees',
+      summary: 'When to stop splitting to avoid overfitting.',
+      concept:
+        'Typical criteria: minimum samples per node, maximum depth, or negligible impurity decrease. Early stopping prevents overly specific trees; alternatively, fully grow and then prune based on validation performance.',
+      exercise:
+        'Suggest two stopping rules you would set for a small dataset (~1k rows) and why.'
+    },
+    {
+      title: 'Bias–Variance Tradeoff',
+      summary: 'Balancing underfitting and overfitting in classifiers.',
+      concept:
+        'Simple models have high bias (underfit); complex models have high variance (overfit). Trees with deep depth can overfit; pruning or ensembles (bagging, random forests) reduce variance. The sweet spot minimizes expected generalization error.',
+      exercise:
+        'Describe a model change that reduces variance for trees without greatly increasing bias.'
+    },
+    {
+      title: 'Estimating Generalization Error',
+      summary: 'Validation strategies to estimate out-of-sample performance.',
+      concept:
+        'Use hold-out validation, k-fold cross-validation, or bootstrap to estimate generalization. Keep a separate test set for final evaluation. Ensure splits are stratified for class balance and avoid data leakage.',
+      exercise:
+        'Outline a 5-fold cross-validation plan for a credit-risk classifier, noting how you would stratify.'
+    },
+    {
+      title: 'Evaluation Metrics for Classification',
+      summary: 'From accuracy to precision/recall, F1, ROC-AUC.',
+      concept:
+        'Confusion matrix summarizes TP/FP/FN/TN. Accuracy can mislead under imbalance; prefer precision/recall and F1. ROC-AUC and PR-AUC compare thresholds; calibration checks probability quality. Always report metrics aligned with business cost.',
+      exercise:
+        'Given TP=40, FP=10, FN=20, TN=30, compute accuracy, precision, recall, and F1.'
+    },
+    {
+      title: 'Practical Issues in Classification',
+      summary: 'Handling imbalance, missing data, cost sensitivity, and leakage.',
+      concept:
+        'Key pitfalls: class imbalance (use resampling or class weights), missing data handling, inconsistent preprocessing between train/test, and target leakage. Document data lineage and use robust validation to detect issues early.',
+      exercise:
+        'List two techniques to address class imbalance and one strategy to detect leakage.'
     }
   ]
 }
