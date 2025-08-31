@@ -41,7 +41,7 @@ export default function ModuleLessonPage({ params }) {
       <div className="crumbs">
         <Link href="/">Home</Link>
         <span>/</span>
-        <Link href={`/focus/${area.slug}`}>{area.title}</Link>
+        <Link href={area.slug === 'data-mining' ? '/data-mining' : `/focus/${area.slug}`}>{area.title}</Link>
         <span>/</span>
         <Link href={`/focus/${area.slug}/module/${m}`}>{mod.title}</Link>
         <span>/</span>
@@ -134,6 +134,19 @@ export default function ModuleLessonPage({ params }) {
         )}
         {lesson.similarityPlayground && (
           <SimilarityPlayground />
+        )}
+
+        {lesson.resources && lesson.resources.length > 0 && (
+          <div className="card">
+            <h2>Resources</h2>
+            <ul className="list">
+              {lesson.resources.map((r) => (
+                <li key={r.href} className="list-item">
+                  <a className="btn" href={r.href} target="_blank" rel="noopener noreferrer">{r.label || r.href}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
         )}
 
         <nav className="nav">

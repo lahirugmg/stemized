@@ -19,7 +19,7 @@ export default function ModuleIndex({ params }) {
       <div className="crumbs">
         <Link href="/">Home</Link>
         <span>/</span>
-        <Link href={`/focus/${area.slug}`}>{area.title}</Link>
+        <Link href={area.slug === 'data-mining' ? '/data-mining' : `/focus/${area.slug}`}>{area.title}</Link>
         <span>/</span>
         <span>{mod.title}</span>
       </div>

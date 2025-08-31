@@ -64,7 +64,7 @@ export default function LessonPageClient({ area, lesson, idx, totalLessons }) {
       <div className="crumbs">
         <Link href="/">Home</Link>
         <span>/</span>
-        <Link href={`/focus/${area.slug}/0`}>{area.title}</Link>
+        <Link href={area.slug === 'data-mining' ? '/data-mining' : `/focus/${area.slug}/0`}>{area.title}</Link>
         <span>/</span>
         <span>Lesson {idx + 1}</span>
       </div>

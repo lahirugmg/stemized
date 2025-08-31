@@ -6,39 +6,72 @@ const area = {
   color: '#4ecdc4',
   theme: 'data',
   modules: [
+    // Official course modules (slides)
+    {
+      slug: 'cse572-m1-slides',
+      title: 'Module 1: Core Concepts — Slides',
+      description: 'Official lecture slides: intro, attributes, preprocessing, similarity, distance, correlation, dimensionality.',
+      lessonIndexes: [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30]
+    },
+    {
+      slug: 'cse572-m2-slides',
+      title: 'Module 2: Classification — Slides',
+      description: 'Decision trees, impurity, tests, evaluation, bias–variance, generalization.',
+      lessonIndexes: [31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42]
+    },
+    {
+      slug: 'cse572-m3-slides',
+      title: 'Module 3: Alternative Classification — Slides',
+      description: 'KNN, Bayes/Naive Bayes, Perceptron, ANN, SVM.',
+      lessonIndexes: [43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54]
+    },
+    {
+      slug: 'cse572-m4-slides',
+      title: 'Module 4: Clustering — Slides',
+      description: 'K-means, hierarchical, DBSCAN, cluster validity.',
+      lessonIndexes: [55, 56, 57, 58, 59, 60, 61, 62, 63, 64]
+    },
+    {
+      slug: 'cse572-m5-slides',
+      title: 'Module 5: Association Rules — Slides',
+      description: 'Apriori, support, confidence, complexity factors, quiz.',
+      lessonIndexes: [65, 66, 67, 68, 69, 70]
+    },
+
+    // Interactive practice modules
     {
       slug: 'core-concepts',
-      title: 'Module 1: Core Concepts & Motivation',
+      title: 'Interactive: Core Concepts & Motivation',
       description: 'Why mine data, where it fits, and foundational data/attribute types.',
       lessonIndexes: [0, 1, 2]
     },
     {
-      slug: 'classification-basics',
-      title: 'Module 2: Existing Techniques — Classification',
-      description: 'Decision trees, split criteria, impurity, evaluation, and generalization.',
-      lessonIndexes: [10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
-    },
-    {
       slug: 'data-prep',
-      title: 'Module 3: Data Preparation',
+      title: 'Interactive: Data Preparation',
       description: 'Cleaning, transforming, and preparing data before mining.',
       lessonIndexes: [3]
     },
     {
       slug: 'similarity-distance',
-      title: 'Module 4: Similarity & Distance',
+      title: 'Interactive: Similarity & Distance',
       description: 'Compare vectors and measure (dis)similarity for mining tasks.',
       lessonIndexes: [4, 5]
     },
     {
       slug: 'dimensionality-correlation',
-      title: 'Module 5: Dimensionality & Correlation',
+      title: 'Interactive: Dimensionality & Correlation',
       description: 'Reduce dimensions and understand relationships among variables.',
       lessonIndexes: [6, 7]
     },
     {
+      slug: 'classification-basics',
+      title: 'Interactive: Classification',
+      description: 'Decision trees, split criteria, impurity, evaluation, and generalization.',
+      lessonIndexes: [10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+    },
+    {
       slug: 'case-study',
-      title: 'Module 6: Case Study',
+      title: 'Capstone: Case Study',
       description: 'Apply the pipeline end-to-end for churn.',
       lessonIndexes: [9]
     }
@@ -569,6 +602,424 @@ const area = {
         'Key pitfalls: class imbalance (use resampling or class weights), missing data handling, inconsistent preprocessing between train/test, and target leakage. Document data lineage and use robust validation to detect issues early.',
       exercise:
         'List two techniques to address class imbalance and one strategy to detect leakage.'
+    },
+    // Slides: Module 1 — Core Concepts
+    {
+      title: 'Why Mine Data — Slide Deck',
+      summary: 'Motivation and value of data mining in practice.',
+      concept: 'Official course slide deck. Open to view the full slides.',
+      resources: [
+        { label: 'Open PDF', href: '/content/module1/CSE572_Module 1_Core Concepts of Data Mining_Lecture Slides/Why Mine Data_Slide Deck.pdf' }
+      ]
+    },
+    {
+      title: 'Introduction to Data Mining — Slide Deck',
+      summary: 'Overview and foundations of data mining.',
+      concept: 'Official course slide deck. Open to view the full slides.',
+      resources: [
+        { label: 'Open PDF', href: '/content/module1/CSE572_Module 1_Core Concepts of Data Mining_Lecture Slides/Introduction to Data Mining_Slide Deck.pdf' }
+      ]
+    },
+    {
+      title: 'Types of Attributes — Slide Deck',
+      summary: 'Attribute types and measurement scales.',
+      concept: 'Official course slide deck. Open to view the full slides.',
+      resources: [
+        { label: 'Open PDF', href: '/content/module1/CSE572_Module 1_Core Concepts of Data Mining_Lecture Slides/Types of Attributes_Slide Deck.pdf' }
+      ]
+    },
+    {
+      title: 'Types of Data — Slide Deck',
+      summary: 'Structured, semi-structured, and unstructured; scales.',
+      concept: 'Official course slide deck. Open to view the full slides.',
+      resources: [
+        { label: 'Open PDF', href: '/content/module1/CSE572_Module 1_Core Concepts of Data Mining_Lecture Slides/Types of Data_Slide Deck.pdf' }
+      ]
+    },
+    {
+      title: 'Similarity Measures — Slide Deck',
+      summary: 'How to measure similarity across data types.',
+      concept: 'Official course slide deck. Open to view the full slides.',
+      resources: [
+        { label: 'Open PDF', href: '/content/module1/CSE572_Module 1_Core Concepts of Data Mining_Lecture Slides/Similarity Measures_Slide Deck.pdf' }
+      ]
+    },
+    {
+      title: 'Distance Measures — Slide Deck',
+      summary: 'Common distance metrics and when to use them.',
+      concept: 'Official course slide deck. Open to view the full slides.',
+      resources: [
+        { label: 'Open PDF', href: '/content/module1/CSE572_Module 1_Core Concepts of Data Mining_Lecture Slides/Distance Measures_Slide Deck.pdf' }
+      ]
+    },
+    {
+      title: 'Correlation — Slide Deck',
+      summary: 'Understanding correlations and relationships in data.',
+      concept: 'Official course slide deck. Open to view the full slides.',
+      resources: [
+        { label: 'Open PDF', href: '/content/module1/CSE572_Module 1_Core Concepts of Data Mining_Lecture Slides/Correlation_Slide Deck.pdf' }
+      ]
+    },
+    {
+      title: 'Data Preprocessing — Slide Deck',
+      summary: 'Cleaning, transforming, and preparing data for mining.',
+      concept: 'Official course slide deck. Open to view the full slides.',
+      resources: [
+        { label: 'Open PDF', href: '/content/module1/CSE572_Module 1_Core Concepts of Data Mining_Lecture Slides/Data Preprocessing_Slide Deck.pdf' }
+      ]
+    },
+    {
+      title: 'Data Preprocessing (FA19) — Slide Deck',
+      summary: 'Alternate deck version (FA19).',
+      concept: 'Official course slide deck. Open to view the full slides.',
+      resources: [
+        { label: 'Open PDF', href: '/content/module1/CSE572_Module 1_Core Concepts of Data Mining_Lecture Slides/Data Preprocessing_FA19_Slide Deck.pdf' }
+      ]
+    },
+    {
+      title: 'Dimensionality Reduction Example (SB23) — Slide Deck',
+      summary: 'Example-driven dimensionality reduction (SB23).',
+      concept: 'Official course slide deck. Open to view the full slides.',
+      resources: [
+        { label: 'Open PDF', href: '/content/module1/CSE572_Module 1_Core Concepts of Data Mining_Lecture Slides/CSE 572_Dimensionality Reduction Example_SB23_Slide Deck.pdf' }
+      ]
+    },
+    {
+      title: 'Introduction to Data Attributes (Compat) — Slide Deck',
+      summary: 'Compatibility-mode deck for attributes.',
+      concept: 'Official course slide deck. Open to view the full slides.',
+      resources: [
+        { label: 'Open PDF', href: '/content/module1/CSE572_Module 1_Core Concepts of Data Mining_Lecture Slides/Introduction to Data Attributes - Compatibility Mode_Slide Deck.pdf' }
+      ]
+    },
+
+    // Slides: Module 2 — Classification
+    {
+      title: 'Introduction to Classification — Slide Deck',
+      summary: 'Overview of classification tasks and concepts.',
+      concept: 'Official course slide deck. Open to view the full slides.',
+      resources: [
+        { label: 'Open PDF', href: '/content/module2/CSE572_Module 2_Existing Techniques - Classification _Lecture Slides/Introduction to Classification_SlideDeck.pdf' }
+      ]
+    },
+    {
+      title: 'Decision Trees — Slide Deck',
+      summary: 'Tree-based classification fundamentals.',
+      concept: 'Official course slide deck. Open to view the full slides.',
+      resources: [
+        { label: 'Open PDF', href: '/content/module2/CSE572_Module 2_Existing Techniques - Classification _Lecture Slides/Decision Trees_SlideDeck.pdf' }
+      ]
+    },
+    {
+      title: 'Test Conditions — Slide Deck',
+      summary: 'Selecting split tests for nodes.',
+      concept: 'Official course slide deck. Open to view the full slides.',
+      resources: [
+        { label: 'Open PDF', href: '/content/module2/CSE572_Module 2_Existing Techniques - Classification _Lecture Slides/Test Conditions_Slide Deck.pdf' }
+      ]
+    },
+    {
+      title: 'Impurity Intro — Slide Deck',
+      summary: 'Introduction to node impurity measures.',
+      concept: 'Official course slide deck. Open to view the full slides.',
+      resources: [
+        { label: 'Open PDF', href: '/content/module2/CSE572_Module 2_Existing Techniques - Classification _Lecture Slides/Measures of Node Impurity_Intro_to_Impurity_Slide Deck.pdf' }
+      ]
+    },
+    {
+      title: 'Gini Impurity — Slide Deck',
+      summary: 'Using Gini for split selection.',
+      concept: 'Official course slide deck. Open to view the full slides.',
+      resources: [
+        { label: 'Open PDF', href: '/content/module2/CSE572_Module 2_Existing Techniques - Classification _Lecture Slides/Measures of Node Impurity_GINI_Slide Deck.pdf' }
+      ]
+    },
+    {
+      title: 'Entropy & Information Gain — Slide Deck',
+      summary: 'Information-theoretic splitting criteria.',
+      concept: 'Official course slide deck. Open to view the full slides.',
+      resources: [
+        { label: 'Open PDF', href: '/content/module2/CSE572_Module 2_Existing Techniques - Classification _Lecture Slides/Measures of Node Impurity_Entropy_Slide Deck.pdf' }
+      ]
+    },
+    {
+      title: 'Stopping Criteria — Slide Deck',
+      summary: 'When to stop growing trees.',
+      concept: 'Official course slide deck. Open to view the full slides.',
+      resources: [
+        { label: 'Open PDF', href: '/content/module2/CSE572_Module 2_Existing Techniques - Classification _Lecture Slides/Stopping Criteria for Tree Induction_Slide Deck.pdf' }
+      ]
+    },
+    {
+      title: 'Evaluation — Slide Deck',
+      summary: 'Evaluating classification performance.',
+      concept: 'Official course slide deck. Open to view the full slides.',
+      resources: [
+        { label: 'Open PDF', href: '/content/module2/CSE572_Module 2_Existing Techniques - Classification _Lecture Slides/Evaluation_Slide Deck.pdf' }
+      ]
+    },
+    {
+      title: 'Practical Issues — Slide Deck',
+      summary: 'Pitfalls and best practices in classification.',
+      concept: 'Official course slide deck. Open to view the full slides.',
+      resources: [
+        { label: 'Open PDF', href: '/content/module2/CSE572_Module 2_Existing Techniques - Classification _Lecture Slides/Practical Issues of Classification_Slide Deck.pdf' }
+      ]
+    },
+    {
+      title: 'Estimating Generalization Errors — Slide Deck',
+      summary: 'Validation strategies and error estimation.',
+      concept: 'Official course slide deck. Open to view the full slides.',
+      resources: [
+        { label: 'Open PDF', href: '/content/module2/CSE572_Module 2_Existing Techniques - Classification _Lecture Slides/Estimating Generalization Errors_Slide Deck.pdf' }
+      ]
+    },
+    {
+      title: 'Bias–Variance Tradeoff (FA19) — Slide Deck',
+      summary: 'FA19 deck variant on bias–variance.',
+      concept: 'Official course slide deck. Open to view the full slides.',
+      resources: [
+        { label: 'Open PDF', href: '/content/module2/CSE572_Module 2_Existing Techniques - Classification _Lecture Slides/The Bias Variance Tradeoff_FA19_Slide Deck.pdf' }
+      ]
+    },
+    {
+      title: 'Bias–Variance Tradeoff (Generalization) — Slide Deck',
+      summary: 'Generalization view of bias–variance.',
+      concept: 'Official course slide deck. Open to view the full slides.',
+      resources: [
+        { label: 'Open PDF', href: '/content/module2/CSE572_Module 2_Existing Techniques - Classification _Lecture Slides/The Bias Variance Tradeoff_Generalization_Slide Deck.pdf' }
+      ]
+    },
+
+    // Slides: Module 3 — Alternative Classification Techniques
+    {
+      title: 'Instance-based Classifiers — Slide Deck',
+      summary: 'KNN and instance-based learning.',
+      concept: 'Official course slide deck. Open to view the full slides.',
+      resources: [
+        { label: 'Open PDF', href: '/content/module3/CSE572_Module 3_Alternative Classification Techniques _LectureSlides/done/1.Instance-based Classifiers_Slide Deck.pdf' }
+      ]
+    },
+    {
+      title: 'Bayes Classifier (FA19) — Slide Deck',
+      summary: 'Bayesian classifiers and assumptions.',
+      concept: 'Official course slide deck. Open to view the full slides.',
+      resources: [
+        { label: 'Open PDF', href: '/content/module3/CSE572_Module 3_Alternative Classification Techniques _LectureSlides/done/2.Bayes Classifier_FA19_Slide Deck.pdf' }
+      ]
+    },
+    {
+      title: 'Bayes Classifier Example (SB23) — Slide Deck',
+      summary: 'Worked example of Bayesian classification.',
+      concept: 'Official course slide deck. Open to view the full slides.',
+      resources: [
+        { label: 'Open PDF', href: '/content/module3/CSE572_Module 3_Alternative Classification Techniques _LectureSlides/done/3.CSE572_Bayes Classifier Example_Bayesian_SB23_Slide Deck.pdf' }
+      ]
+    },
+    {
+      title: 'Naive Bayes Classifier — Slide Deck',
+      summary: 'Naive Bayes fundamentals.',
+      concept: 'Official course slide deck. Open to view the full slides.',
+      resources: [
+        { label: 'Open PDF', href: '/content/module3/CSE572_Module 3_Alternative Classification Techniques _LectureSlides/done/4.Naive Bayes Classifier_Slide Deck.pdf' }
+      ]
+    },
+    {
+      title: 'ANN Basics — Slide Deck',
+      summary: 'Artificial Neural Networks basics.',
+      concept: 'Official course slide deck. Open to view the full slides.',
+      resources: [
+        { label: 'Open PDF', href: '/content/module3/CSE572_Module 3_Alternative Classification Techniques _LectureSlides/done/5.Artificial Neural Networks Basics_Slide Deck.pdf' }
+      ]
+    },
+    {
+      title: 'Perceptron Learning — Slide Deck',
+      summary: 'Perceptron algorithm and learning rule.',
+      concept: 'Official course slide deck. Open to view the full slides.',
+      resources: [
+        { label: 'Open PDF', href: '/content/module3/CSE572_Module 3_Alternative Classification Techniques _LectureSlides/done/6.Perceptron Learning Algorithm_Slide Deck.pdf' }
+      ]
+    },
+    {
+      title: 'ANN Learning with Backprop — Slide Deck',
+      summary: 'Training ANNs via backpropagation.',
+      concept: 'Official course slide deck. Open to view the full slides.',
+      resources: [
+        { label: 'Open PDF', href: '/content/module3/CSE572_Module 3_Alternative Classification Techniques _LectureSlides/done/7.Artificial Neural Networks Learning with Backpropogation.pdf' }
+      ]
+    },
+    {
+      title: 'Linear SVM — Problem Formation',
+      summary: 'Formulating the linear SVM optimization problem.',
+      concept: 'Official course slide deck. Open to view the full slides.',
+      resources: [
+        { label: 'Open PDF', href: '/content/module3/CSE572_Module 3_Alternative Classification Techniques _LectureSlides/done/Linear SVM Problem Formation.pdf' }
+      ]
+    },
+    {
+      title: 'Example: Linear Separable SVM — Slide Deck',
+      summary: 'Illustrative example of separable SVM.',
+      concept: 'Official course slide deck. Open to view the full slides.',
+      resources: [
+        { label: 'Open PDF', href: '/content/module3/CSE572_Module 3_Alternative Classification Techniques _LectureSlides/done/Example of linear separable SVM_Slide Deck.pdf' }
+      ]
+    },
+    {
+      title: 'Nonlinear SVM — Slide Deck',
+      summary: 'Kernels and nonlinear decision boundaries.',
+      concept: 'Official course slide deck. Open to view the full slides.',
+      resources: [
+        { label: 'Open PDF', href: '/content/module3/CSE572_Module 3_Alternative Classification Techniques _LectureSlides/done/Nonlinear SVM_Slide Deck.pdf' }
+      ]
+    },
+    {
+      title: 'Nonseparable SVM — Slide Deck',
+      summary: 'Soft margins and slack variables.',
+      concept: 'Official course slide deck. Open to view the full slides.',
+      resources: [
+        { label: 'Open PDF', href: '/content/module3/CSE572_Module 3_Alternative Classification Techniques _LectureSlides/done/Nonseparable SVM_Slide Deck.pdf' }
+      ]
+    },
+    {
+      title: 'Lagrangian Multipliers — Slide Deck',
+      summary: 'Using Lagrangian multipliers in SVM derivations.',
+      concept: 'Official course slide deck. Open to view the full slides.',
+      resources: [
+        { label: 'Open PDF', href: '/content/module3/CSE572_Module 3_Alternative Classification Techniques _LectureSlides/Usage of Langrangian Multipliers_Slide Deck.pdf' }
+      ]
+    },
+
+    // Slides: Module 4 — Clustering
+    {
+      title: 'Introduction to Cluster Validity — Slide Deck',
+      summary: 'What makes clusters meaningful and how to assess them.',
+      concept: 'Official course slide deck. Open to view the full slides.',
+      resources: [
+        { label: 'Open PDF', href: '/content/module4/CSE572_Module 4_Clustering_Lecture Slides/Introduction to Cluster Validity_Slide Deck.pdf' }
+      ]
+    },
+    {
+      title: 'K-Means Algorithm — Slide Deck',
+      summary: 'K-means clustering algorithm and properties.',
+      concept: 'Official course slide deck. Open to view the full slides.',
+      resources: [
+        { label: 'Open PDF', href: '/content/module4/CSE572_Module 4_Clustering_Lecture Slides/KMeansAlgorithm_Slide Deck.pdf' }
+      ]
+    },
+    {
+      title: 'Bisecting K-Means — Slide Deck',
+      summary: 'Bisecting variant of K-means for clustering.',
+      concept: 'Official course slide deck. Open to view the full slides.',
+      resources: [
+        { label: 'Open PDF', href: '/content/module4/CSE572_Module 4_Clustering_Lecture Slides/BisectingKMeans_Slide Deck.pdf' }
+      ]
+    },
+    {
+      title: 'Hierarchical Clustering — Slide Deck',
+      summary: 'Agglomerative/divisive clustering frameworks.',
+      concept: 'Official course slide deck. Open to view the full slides.',
+      resources: [
+        { label: 'Open PDF', href: '/content/module4/CSE572_Module 4_Clustering_Lecture Slides/HierarchicalClustering_Slide Deck.pdf' }
+      ]
+    },
+    {
+      title: 'Hierarchical Clustering — Examples',
+      summary: 'Worked examples for hierarchical clustering.',
+      concept: 'Official course slide deck. Open to view the full slides.',
+      resources: [
+        { label: 'Open PDF', href: '/content/module4/CSE572_Module 4_Clustering_Lecture Slides/HierarchicalClusteringExample_Slide Deck.pdf' }
+      ]
+    },
+    {
+      title: 'Hierarchical Clustering — Performance',
+      summary: 'Runtime and performance considerations.',
+      concept: 'Official course slide deck. Open to view the full slides.',
+      resources: [
+        { label: 'Open PDF', href: '/content/module4/CSE572_Module 4_Clustering_Lecture Slides/HierarchicalClusteringPerformance_Slide Deck.pdf' }
+      ]
+    },
+    {
+      title: 'DBSCAN — Slide Deck',
+      summary: 'Density-based clustering with DBSCAN.',
+      concept: 'Official course slide deck. Open to view the full slides.',
+      resources: [
+        { label: 'Open PDF', href: '/content/module4/CSE572_Module 4_Clustering_Lecture Slides/DBSCAN_Slide Deck.pdf' }
+      ]
+    },
+    {
+      title: 'Unsupervised Cluster Validity — Slide Deck',
+      summary: 'Evaluating clusters without labels.',
+      concept: 'Official course slide deck. Open to view the full slides.',
+      resources: [
+        { label: 'Open PDF', href: '/content/module4/CSE572_Module 4_Clustering_Lecture Slides/Unsupervised Cluster Validity_Slide Deck.pdf' }
+      ]
+    },
+    {
+      title: 'Supervised Cluster Validity — Slide Deck',
+      summary: 'External validation with labels.',
+      concept: 'Official course slide deck. Open to view the full slides.',
+      resources: [
+        { label: 'Open PDF', href: '/content/module4/CSE572_Module 4_Clustering_Lecture Slides/Supervised Cluster Validity_Slide Deck.pdf' }
+      ]
+    },
+    {
+      title: 'Introduction to Cluster Validity (Alt) — Slide Deck',
+      summary: 'Alternate deck version for cluster validity.',
+      concept: 'Official course slide deck. Open to view the full slides.',
+      resources: [
+        { label: 'Open PDF', href: '/content/module4/CSE572_Module 4_Clustering_Lecture Slides/Introduction to Cluster Validity_Sliide Deck.pdf' }
+      ]
+    },
+
+    // Slides: Module 5 — Association Rule Mining
+    {
+      title: 'Basic Concepts of Association Rule Mining — Slide Deck',
+      summary: 'Foundations of association rules and itemsets.',
+      concept: 'Official course slide deck. Open to view the full slides.',
+      resources: [
+        { label: 'Open PDF', href: '/content/module 5/CSE572_Module 5_Association Rule Mining _LectureSlides/Basic Concepts of Association Rule Mining_Slide Deck.pdf' }
+      ]
+    },
+    {
+      title: 'Apriori Algorithm — Slide Deck',
+      summary: 'Apriori algorithm for frequent itemset mining.',
+      concept: 'Official course slide deck. Open to view the full slides.',
+      resources: [
+        { label: 'Open PDF', href: '/content/module 5/CSE572_Module 5_Association Rule Mining _LectureSlides/Apriori Algorithm_Slide Deck.pdf' }
+      ]
+    },
+    {
+      title: 'Apriori Principle — Slide Deck',
+      summary: 'The Apriori principle and pruning.',
+      concept: 'Official course slide deck. Open to view the full slides.',
+      resources: [
+        { label: 'Open PDF', href: '/content/module 5/CSE572_Module 5_Association Rule Mining _LectureSlides/Introduction to Apriori Principle_Slide Deck.pdf' }
+      ]
+    },
+    {
+      title: 'Support and Confidence — Slide Deck',
+      summary: 'Key measures for association rules.',
+      concept: 'Official course slide deck. Open to view the full slides.',
+      resources: [
+        { label: 'Open PDF', href: '/content/module 5/CSE572_Module 5_Association Rule Mining _LectureSlides/Confidence and Support_Slide Deck.pdf' }
+      ]
+    },
+    {
+      title: 'Factors Affecting Complexity — Slide Deck',
+      summary: 'Complexity considerations in ARM.',
+      concept: 'Official course slide deck. Open to view the full slides.',
+      resources: [
+        { label: 'Open PDF', href: '/content/module 5/CSE572_Module 5_Association Rule Mining _LectureSlides/Factors Affecting Complexity_Slide Deck.pdf' }
+      ]
+    },
+    {
+      title: 'Graded Quiz & Notes — Module 5',
+      summary: 'Practice quiz and additional notes for Apriori.',
+      concept: 'Open the PDF quiz and notes to review concepts.',
+      resources: [
+        { label: 'Open Quiz PDF', href: '/content/module 5/Module_5__Graded_quiz_Sp23__CSE_572__Data_Mining__2023_Spring_.pdf.pdf' },
+        { label: 'Apriori Q&A Notes', href: '/content/module 5/quiz/Apriori_QA_Notes.pdf' }
+      ]
     }
   ]
 }
