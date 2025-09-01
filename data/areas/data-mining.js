@@ -6,69 +6,77 @@ const area = {
   color: '#4ecdc4',
   theme: 'data',
   modules: [
-    // Official course modules (slides)
-    {
-      slug: 'cse572-m1-slides',
-      title: 'Module 1: Core Concepts — Slides',
-      description: 'Official lecture slides: intro, attributes, preprocessing, similarity, distance, correlation, dimensionality.',
-      lessonIndexes: [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30]
-    },
-    {
-      slug: 'cse572-m2-slides',
-      title: 'Module 2: Classification — Slides',
-      description: 'Decision trees, impurity, tests, evaluation, bias–variance, generalization.',
-      lessonIndexes: [31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42]
-    },
-    {
-      slug: 'cse572-m3-slides',
-      title: 'Module 3: Alternative Classification — Slides',
-      description: 'KNN, Bayes/Naive Bayes, Perceptron, ANN, SVM.',
-      lessonIndexes: [43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54]
-    },
-    {
-      slug: 'cse572-m4-slides',
-      title: 'Module 4: Clustering — Slides',
-      description: 'K-means, hierarchical, DBSCAN, cluster validity.',
-      lessonIndexes: [55, 56, 57, 58, 59, 60, 61, 62, 63, 64]
-    },
-    {
-      slug: 'cse572-m5-slides',
-      title: 'Module 5: Association Rules — Slides',
-      description: 'Apriori, support, confidence, complexity factors, quiz.',
-      lessonIndexes: [65, 66, 67, 68, 69, 70]
-    },
-
-    // Interactive practice modules
+    // === FOUNDATIONS ===
     {
       slug: 'core-concepts',
-      title: 'Interactive: Core Concepts & Motivation',
+      title: 'Core Concepts & Motivation',
       description: 'Why mine data, where it fits, and foundational data/attribute types.',
       lessonIndexes: [0, 1, 2]
     },
     {
+      slug: 'cse572-m1-slides',
+      title: 'Core Concepts — Slides',
+      description: 'Official lecture slides: intro, attributes, preprocessing, similarity, distance, correlation, dimensionality.',
+      lessonIndexes: [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30]
+    },
+
+    // === DATA PREPARATION ===
+    {
       slug: 'data-prep',
-      title: 'Interactive: Data Preparation',
+      title: 'Data Preparation',
       description: 'Cleaning, transforming, and preparing data before mining.',
       lessonIndexes: [3]
     },
     {
       slug: 'similarity-distance',
-      title: 'Interactive: Similarity & Distance',
+      title: 'Similarity & Distance',
       description: 'Compare vectors and measure (dis)similarity for mining tasks.',
       lessonIndexes: [4, 5]
     },
     {
       slug: 'dimensionality-correlation',
-      title: 'Interactive: Dimensionality & Correlation',
+      title: 'Dimensionality & Correlation',
       description: 'Reduce dimensions and understand relationships among variables.',
       lessonIndexes: [6, 7]
     },
+
+    // === CLASSIFICATION ===
     {
       slug: 'classification-basics',
-      title: 'Interactive: Classification',
+      title: 'Classification',
       description: 'Decision trees, split criteria, impurity, evaluation, and generalization.',
       lessonIndexes: [10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
     },
+    {
+      slug: 'cse572-m2-slides',
+      title: 'Classification — Slides',
+      description: 'Decision trees, impurity, tests, evaluation, bias–variance, generalization.',
+      lessonIndexes: [31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42]
+    },
+    {
+      slug: 'cse572-m3-slides',
+      title: 'Alternative Classification — Slides',
+      description: 'KNN, Bayes/Naive Bayes, Perceptron, ANN, SVM.',
+      lessonIndexes: [43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54]
+    },
+
+    // === CLUSTERING ===
+    {
+      slug: 'cse572-m4-slides',
+      title: 'Clustering — Slides',
+      description: 'K-means, hierarchical, DBSCAN, cluster validity.',
+      lessonIndexes: [55, 56, 57, 58, 59, 60, 61, 62, 63, 64]
+    },
+
+    // === ASSOCIATION RULES ===
+    {
+      slug: 'cse572-m5-slides',
+      title: 'Association Rules — Slides',
+      description: 'Apriori, support, confidence, complexity factors, quiz.',
+      lessonIndexes: [65, 66, 67, 68, 69, 70]
+    },
+
+    // === CAPSTONE ===
     {
       slug: 'case-study',
       title: 'Capstone: Case Study',
