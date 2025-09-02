@@ -7,9 +7,20 @@ export const groups = [
     slug: 'math',
     title: 'Math Learning Path',
     shortTitle: 'Math',
-    description: 'Start with core building blocks, then level up into algebra mastery.',
+    description: 'A structured path from foundations to calculus. Pick any course to start practicing interactively.',
     color: '#3b82f6',
-  areas: ['math-foundations', 'algebra-made-simple', 'geometry-basics']
+  areas: [
+      'math-foundations',
+      'pre-algebra',
+      'algebra-made-simple',
+      'geometry-basics',
+      'algebra-2',
+      'trigonometry',
+      'precalculus',
+      'calculus-1',
+      'calculus-2',
+      'probability-statistics'
+    ]
   },
   {
     slug: 'life-sciences',

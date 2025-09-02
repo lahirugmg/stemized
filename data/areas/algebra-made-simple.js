@@ -96,6 +96,7 @@ const area = {
       summary: 'Similar to equations, but flip when multiplying/dividing by a negative.',
       concept: 'Solve like equations. If you multiply or divide both sides by a negative number, reverse the inequality sign.',
       keywords: ['flip sign', 'negative', 'solution set'],
+      functionGrapher: true,
       order: { title: 'Solve −2x + 3 ≤ 11 (steps)', items: ['Subtract 3 from both sides', 'Divide both sides by −2 and flip ≤ to ≥', 'Check a value'], solution: ['Subtract 3 from both sides', 'Divide both sides by −2 and flip ≤ to ≥', 'Check a value'] },
       quiz: { question: 'When do you flip the inequality sign?', options: ['Adding a negative', 'Multiplying by a negative', 'Adding 3', 'Dividing by 2'], answerIndex: 1, hint: 'Multiplying or dividing by a negative only.' }
     },
@@ -136,6 +137,7 @@ const area = {
       summary: 'y = mx + b: slope m, intercept b.',
       concept: 'In y = mx + b, m is the slope (change in y for each 1 step in x) and b is the y-intercept (where the line crosses the y-axis).',
       keywords: ['slope', 'intercept', 'y = mx + b'],
+      functionGrapher: true,
       flashcards: { title: 'Identify Parts', cards: [ { front: 'Slope (m)', back: 'How steep the line is' }, { front: 'Intercept (b)', back: 'Where line crosses y-axis' } ] },
       quiz: { question: 'For y = 2x + 3, what is m?', options: ['2', '3', '−2', '1/2'], answerIndex: 0, hint: 'Coefficient of x.' }
     },
@@ -159,4 +161,3 @@ const area = {
 }
 
 export default area
-

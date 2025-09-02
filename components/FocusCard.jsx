@@ -106,8 +106,16 @@ export default function FocusCard({ area }) {
             Restart
           </Link>
         )}
+        {area.slug === 'data-mining' && (
+          <Link 
+            className="btn" 
+            href="/data-mining"
+            style={{ marginLeft: '0.5rem' }}
+          >
+            Modules
+          </Link>
+        )}
       </div>
     </article>
   )
 }
-

@@ -49,7 +49,21 @@ const area = {
       },
       callouts: [
         { type: 'tip', title: 'Check As You Go', body: 'Rewrite the expression after each step to avoid mistakes.' }
-      ]
+      ],
+      interactiveCalculator: true
+    },
+    {
+      title: 'Area and Perimeter of Rectangles',
+      summary: 'Compute area (w × h) and perimeter (2(w + h)).',
+      concept:
+        'Area measures how much space is inside a shape (in square units), while perimeter measures the distance around it (in linear units). For rectangles: area = width × height; perimeter = 2 × (width + height).',
+      keywords: ['area', 'perimeter', 'rectangle', 'width', 'height', 'square units', 'linear units'],
+      exercise: 'Find area and perimeter of a 5 by 3 rectangle.',
+      solution: 'Area = 5 × 3 = 15 square units. Perimeter = 2 × (5 + 3) = 16 units.',
+      callouts: [
+        { type: 'tip', title: 'Units Matter', body: 'Area uses square units (e.g., cm²), perimeter uses linear units (e.g., cm).' }
+      ],
+      areaPerimeter: true
     },
     {
       title: 'Distributive Property',
@@ -97,7 +111,8 @@ const area = {
         prompt: 'When is distributing helpful before simplifying an expression?',
         expectedKeywords: ['eliminate parentheses', 'expand', 'combine like terms', 'area model', 'mental math'],
         sample: 'Distribution eliminates parentheses so you can combine like terms or compute quickly (e.g., mental math and area/box models).'
-      }
+      },
+      distributiveVisualizer: true
     },
     {
       title: 'Linear Equations',
@@ -135,6 +150,18 @@ const area = {
       },
       callouts: [
         { type: 'info', title: 'Keep Balance', body: 'Whatever you do to one side, do to the other.' }
+      ],
+      equationSolver: true
+    },
+    {
+      title: 'Practice & Review',
+      summary: 'Test your skills with unlimited practice problems.',
+      concept: 'Now that you\'ve learned the foundations, it\'s time to practice! Use the interactive practice generator to reinforce your understanding of PEMDAS, distributive property, and linear equations.',
+      keywords: ['practice', 'review', 'problems', 'mastery'],
+      exercise: 'Use the practice generator below to solve problems from all three topics. Try to get at least 80% accuracy!',
+      practiceGenerator: true,
+      callouts: [
+        { type: 'tip', title: 'Practice Makes Perfect', body: 'The more problems you solve, the more automatic these skills become!' }
       ]
     }
   ]
