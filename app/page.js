@@ -1,15 +1,21 @@
 'use client'
 import { Suspense, useState, useEffect } from 'react'
 import FocusCard from '../components/FocusCard'
+import ProgressDashboard from '../components/ProgressDashboard'
 import { groups } from '../data/groups'
 import { LoadingGrid } from '../components/LoadingCard'
 import { focusAreas } from '../data'
+import { getOverallProgress } from '../lib/progress'
 
 function GroupedFocusAreas() {
   const [mounted, setMounted] = useState(false)
+  const [showDashboard, setShowDashboard] = useState(false)
   
   useEffect(() => {
     setMounted(true)
+    // Check if user has any progress to decide whether to show dashboard
+    const stats = getOverallProgress(focusAreas)
+    setShowDashboard(stats.areasStarted > 0)
   }, [])
 
   if (!mounted) {
@@ -34,6 +40,13 @@ function GroupedFocusAreas() {
 
   return (
     <div style={{ display: 'grid', gap: '1.5rem' }}>
+      {/* Progress Dashboard - shown only if user has started learning */}
+      {showDashboard && (
+        <div style={{ marginBottom: '1rem' }}>
+          <ProgressDashboard focusAreas={focusAreas} />
+        </div>
+      )}
+
       {/* Grouped areas */}
       {groups.map(group => {
         const groupAreas = group.areas.map(slug => focusAreas.find(area => area.slug === slug)).filter(Boolean)
