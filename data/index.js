@@ -14,6 +14,16 @@ import biologyBasics from './areas/biology-basics'
 import codingBasics from './areas/coding-basics'
 import humanBodyKids from './areas/human-body-kids'
 import algebraMadeSimple from './areas/algebra-made-simple'
+import proofs from './areas/proofs'
+import discrete from './areas/discrete'
+import combinatoricsGraphs from './areas/combinatorics-graphs'
+import linearAlgebra from './areas/linear-algebra'
+import calculusIII from './areas/calculus-iii'
+import differentialEquations from './areas/differential-equations'
+import optimization from './areas/optimization'
+import numericalMethods from './areas/numerical-methods'
+import regression from './areas/regression'
+import financialMath from './areas/financial-math'
 
 export const focusAreas = [
   mathFoundations,
@@ -26,6 +36,16 @@ export const focusAreas = [
   calculus1,
   calculus2,
   probabilityStatistics,
+  proofs,
+  discrete,
+  combinatoricsGraphs,
+  linearAlgebra,
+  calculusIII,
+  differentialEquations,
+  optimization,
+  numericalMethods,
+  regression,
+  financialMath,
   llmEngineering,
   dataMining,
   physicsBasics,
