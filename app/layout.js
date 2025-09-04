@@ -4,6 +4,7 @@ export const metadata = {
 }
 
 import './globals.css'
+import SearchBox from '../components/SearchBox'
 
 export default function RootLayout({ children }) {
   return (
@@ -11,7 +12,10 @@ export default function RootLayout({ children }) {
       <body>
         <header className="site-header">
           <div className="container">
-            <a className="brand" href="/">STEMized</a>
+            <div className="header-content">
+              <a className="brand" href="/">STEMized</a>
+              <SearchBox />
+            </div>
           </div>
         </header>
         <main className="container">

@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { getAreaBySlug } from '../../../data'
+import { getAreaBySlug, getModule } from '../../../data'
 import FocusAreaProgress from '../../../components/FocusAreaProgress'
 
 export default function FocusIndex({ params }) {
@@ -34,11 +34,38 @@ export default function FocusIndex({ params }) {
               </article>
             ))}
           </div>
+
+          {/* For Data Mining, show lesson cards by module below */}
+          {area.slug === 'data-mining' && (
+            <div style={{ marginTop: '1.5rem' }}>
+              {area.modules.map((mod, i) => {
+                const fullMod = getModule(area.slug, i)
+                if (!fullMod || !fullMod.lessons || fullMod.lessons.length === 0) return null
+                return (
+                  <section key={`module-lessons-${i}`} style={{ marginTop: '1rem' }}>
+                    <h3 style={{ marginTop: 0 }}>{fullMod.title}</h3>
+                    <div className="grid">
+                      {fullMod.lessons.map((l, j) => (
+                        <article key={`${i}-${j}`} className="card hover">
+                          <h4 style={{ marginTop: 0 }}>{l.title}</h4>
+                          {l.summary && <p style={{ marginTop: 0 }}>{l.summary}</p>}
+                          <div className="actions">
+                            <Link className="btn" href={`/focus/${area.slug}/module/${i}/${j}`}>Open lesson</Link>
+                          </div>
+                        </article>
+                      ))}
+                    </div>
+                  </section>
+                )
+              })}
+            </div>
+          )}
         </section>
       )}
+      {/* Keep global lesson index list for continuity */}
       <ol className="list">
         {area.lessons.map((l, i) => (
-          <li key={l.title} className="list-item">
+          <li key={`${l.title}-${i}`} className="list-item">
             <Link href={`/focus/${area.slug}/${i}`}>{i + 1}. {l.title}</Link>
           </li>
         ))}
