@@ -7,7 +7,7 @@ export const groups = [
     slug: 'math',
     title: 'Math Learning Path',
     shortTitle: 'Math',
-    description: 'A structured path from foundations to calculus. Pick any course to start practicing interactively.',
+    description: 'A comprehensive path from foundations through advanced topics: calculus, linear algebra, proofs, applied math, and data analysis.',
     color: '#3b82f6',
   areas: [
       'math-foundations',
@@ -19,7 +19,17 @@ export const groups = [
       'precalculus',
       'calculus-1',
       'calculus-2',
-      'probability-statistics'
+      'probability-statistics',
+      'proofs',
+      'discrete',
+      'combinatorics-graphs',
+      'linear-algebra',
+      'calculus-iii',
+      'differential-equations',
+      'optimization',
+      'numerical-methods',
+      'regression',
+      'financial-math'
     ]
   },
   {
