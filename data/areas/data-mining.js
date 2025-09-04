@@ -2,7 +2,7 @@ const area = {
   slug: 'data-mining',
   title: 'Data Mining',
   description: 'Master core concepts through interactive visualizations and hands-on practice.',
-  tags: ['Data Mining', 'Data Types', 'Attributes', 'Preprocessing', 'Similarity', 'Distance', 'Dimensionality', 'Correlation', 'Classification', 'Decision Trees', 'Evaluation'],
+  tags: ['Data Mining', 'Data Types', 'Attributes', 'Preprocessing', 'Similarity', 'Distance', 'Dimensionality', 'Correlation', 'Classification', 'Decision Trees', 'Evaluation', 'Agentic AI', 'MLOps', 'AutoML', 'LLMs', 'Modern AI'],
   color: '#4ecdc4',
   theme: 'data',
   modules: [
@@ -82,6 +82,14 @@ const area = {
       title: 'Capstone: Case Study',
       description: 'Apply the pipeline end-to-end for churn.',
       lessonIndexes: [9]
+    },
+
+    // === NEW AI & DATA SCIENCE TECHNIQUES (2024-2025) ===
+    {
+      slug: 'modern-ai-techniques',
+      title: 'Modern AI & Data Science Techniques',
+      description: 'Latest breakthroughs in AI and data science for 2024-2025.',
+      lessonIndexes: [71, 72, 73, 74]
     }
   ],
   lessons: [
@@ -1028,6 +1036,274 @@ const area = {
         { label: 'Open Quiz PDF', href: '/content/module 5/Module_5__Graded_quiz_Sp23__CSE_572__Data_Mining__2023_Spring_.pdf.pdf' },
         { label: 'Apriori Q&A Notes', href: '/content/module 5/quiz/Apriori_QA_Notes.pdf' }
       ]
+    },
+
+    // === NEW AI & DATA SCIENCE TECHNIQUES (2024-2025) ===
+    {
+      title: 'Agentic AI Systems',
+      summary: 'Understanding autonomous AI agents that perform tasks independently.',
+      story: 'Imagine an AI that doesn\'t just answer questions but actively manages your entire data pipeline—from collecting data to generating insights to scheduling follow-up analyses. This is the promise of Agentic AI, the biggest breakthrough in 2024-2025.',
+      concept: 'Agentic AI systems are autonomous agents that can perceive their environment, make decisions, and take actions to achieve specific goals without constant human oversight. Unlike traditional AI that responds to prompts, agentic AI proactively manages workflows, schedules tasks, and adapts to changing conditions. Key components include goal-oriented reasoning, action planning, environment monitoring, and learning from feedback.',
+      keywords: ['agentic AI', 'autonomous agents', 'workflow automation', 'decision making', 'goal-oriented reasoning'],
+      exercise: 'Design an agentic AI system for e-commerce: 1) Define its goals (customer satisfaction, sales optimization), 2) List actions it can take (inventory management, personalized recommendations, customer service), 3) Describe how it would adapt to seasonal changes.',
+      solution: 'Goals: Maximize customer satisfaction and sales. Actions: Real-time inventory adjustments, dynamic pricing, personalized product recommendations, automated customer support, predictive restocking. Adaptation: Monitor seasonal patterns, adjust recommendation algorithms, modify pricing strategies based on demand forecasting.',
+      reflection: 'What are the ethical implications of fully autonomous AI agents making business decisions? How do we maintain human oversight while preserving agent autonomy?',
+      visualization: 'AgentWorkflowDiagram',
+      flow: {
+        title: 'Agentic AI Workflow',
+        steps: ['Goal Setting', 'Environment Perception', 'Decision Planning', 'Action Execution', 'Feedback Learning']
+      },
+      terms: {
+        title: 'Agentic AI Components',
+        items: [
+          { term: 'Autonomous Agent', def: 'AI system that operates independently to achieve goals' },
+          { term: 'Goal-Oriented Reasoning', def: 'Planning actions to achieve specific objectives' },
+          { term: 'Environment Monitoring', def: 'Continuous awareness of system state and changes' },
+          { term: 'Action Planning', def: 'Strategic sequencing of tasks to reach goals' },
+          { term: 'Adaptive Learning', def: 'Improving performance based on outcomes and feedback' },
+          { term: 'Multi-Agent Systems', def: 'Multiple agents working together on complex tasks' }
+        ]
+      },
+      useCases: {
+        title: 'Agentic AI Applications',
+        items: [
+          { title: 'Business Process Automation', desc: 'End-to-end workflow management without human intervention' },
+          { title: 'Data Pipeline Management', desc: 'Autonomous data collection, processing, and quality monitoring' },
+          { title: 'Customer Service', desc: 'Intelligent agents handling complex customer inquiries independently' },
+          { title: 'Financial Trading', desc: 'Algorithmic trading agents adapting to market conditions' },
+          { title: 'Supply Chain Optimization', desc: 'Agents managing inventory, logistics, and supplier relationships' },
+          { title: 'Content Creation', desc: 'Automated content generation and optimization for different audiences' }
+        ]
+      },
+      callouts: [
+        { type: 'info', title: 'Current Limitations', body: 'Early implementations focus on structured, low-risk tasks due to trust and reliability concerns.' },
+        { type: 'warning', title: 'Ethical Considerations', body: 'Autonomous agents raise questions about accountability, bias, and human control.' },
+        { type: 'tip', title: 'Implementation Strategy', body: 'Start with small, contained tasks and gradually expand agent autonomy as trust is established.' }
+      ],
+      quiz: {
+        question: 'What distinguishes Agentic AI from traditional AI systems?',
+        options: ['Higher accuracy', 'Autonomous goal-oriented behavior', 'Faster processing speed', 'Better user interface'],
+        answerIndex: 1,
+        hint: 'Think about the key characteristic that makes these systems independent.'
+      }
+    },
+    {
+      title: 'MLOps and Model Industrialization',
+      summary: 'Scaling machine learning from artisanal craft to industrial production.',
+      story: 'Netflix deploys thousands of ML models daily, from recommendation engines to content optimization. This isn\'t possible with traditional data science approaches—it requires MLOps, the practice of industrializing machine learning at scale.',
+      concept: 'MLOps (Machine Learning Operations) is the practice of applying DevOps principles to machine learning workflows. It encompasses model development, deployment, monitoring, and maintenance at scale. Key components include automated pipelines, version control for models and data, continuous integration/deployment (CI/CD), model monitoring, and infrastructure as code. The goal is to move from one-off model creation to systematic, repeatable ML production systems.',
+      keywords: ['MLOps', 'model deployment', 'CI/CD', 'model monitoring', 'feature stores', 'model versioning'],
+      exercise: 'Design an MLOps pipeline for a recommendation system: 1) Data ingestion and processing, 2) Model training and validation, 3) Deployment strategy, 4) Monitoring and alerting, 5) Retraining triggers.',
+      solution: 'Pipeline: Automated data ingestion → Feature engineering → Model training with hyperparameter tuning → A/B testing → Gradual deployment → Performance monitoring → Automated retraining when drift detected. Include version control for code, data, and models, plus alerting for performance degradation.',
+      reflection: 'How does MLOps change the role of data scientists? What new skills are needed in an industrialized ML environment?',
+      flow: {
+        title: 'MLOps Lifecycle',
+        steps: ['Data Ingestion', 'Feature Engineering', 'Model Training', 'Validation & Testing', 'Deployment', 'Monitoring', 'Retraining']
+      },
+      terms: {
+        title: 'MLOps Components',
+        items: [
+          { term: 'Feature Store', def: 'Centralized repository for machine learning features' },
+          { term: 'Model Registry', def: 'Version control system for ML models and metadata' },
+          { term: 'CI/CD Pipeline', def: 'Automated testing and deployment of ML models' },
+          { term: 'Model Monitoring', def: 'Tracking model performance and data drift in production' },
+          { term: 'Infrastructure as Code', def: 'Managing ML infrastructure through code and automation' },
+          { term: 'A/B Testing', def: 'Comparing model variants to validate improvements' },
+          { term: 'Model Drift', def: 'Degradation in model performance over time' },
+          { term: 'Shadow Deployment', def: 'Running new models alongside existing ones for comparison' }
+        ]
+      },
+      useCases: {
+        title: 'MLOps in Practice',
+        items: [
+          { title: 'Netflix', desc: 'Thousands of recommendation models deployed and managed automatically' },
+          { title: 'Uber', desc: 'Dynamic pricing models updated in real-time based on demand patterns' },
+          { title: 'Spotify', desc: 'Music recommendation system with continuous learning and deployment' },
+          { title: 'Amazon', desc: 'Product recommendation and demand forecasting at massive scale' },
+          { title: 'Tesla', desc: 'Autonomous driving models deployed to vehicles over-the-air' },
+          { title: 'Financial Services', desc: 'Fraud detection models with real-time monitoring and updates' }
+        ]
+      },
+      categorize: {
+        title: 'Classify MLOps Tools by Function',
+        categories: ['Development', 'Deployment', 'Monitoring', 'Infrastructure'],
+        items: [
+          'Kubeflow',
+          'MLflow',
+          'Prometheus',
+          'TensorFlow Serving',
+          'Weights & Biases',
+          'Docker',
+          'Grafana',
+          'Apache Airflow'
+        ],
+        solution: {
+          'Development': ['MLflow', 'Weights & Biases'],
+          'Deployment': ['Kubeflow', 'TensorFlow Serving'],
+          'Monitoring': ['Prometheus', 'Grafana'],
+          'Infrastructure': ['Docker', 'Apache Airflow']
+        }
+      },
+      quiz: {
+        question: 'What is the primary benefit of implementing MLOps practices?',
+        options: ['Faster model training', 'Better model accuracy', 'Scalable model deployment and management', 'Reduced data requirements'],
+        answerIndex: 2,
+        hint: 'Consider what changes when moving from individual models to industrial-scale ML.'
+      }
+    },
+    {
+      title: 'AutoML and Democratized Machine Learning',
+      summary: 'Automating machine learning to make AI accessible to non-experts.',
+      story: 'A marketing manager at a retail company needs to predict customer churn but has no programming skills. With AutoML platforms like H2O.ai or Google AutoML, she can upload her data, specify the goal, and get a production-ready model in hours, not months.',
+      concept: 'AutoML (Automated Machine Learning) automates the entire machine learning pipeline, from data preprocessing to model selection and hyperparameter tuning. It democratizes AI by enabling non-technical domain experts to build and deploy ML models. Key capabilities include automated feature engineering, algorithm selection, hyperparameter optimization, model ensembling, and deployment. Advanced AutoML systems also handle data quality issues, missing values, and provide interpretability insights.',
+      keywords: ['AutoML', 'automated feature engineering', 'hyperparameter tuning', 'model selection', 'democratization', 'citizen data science'],
+      exercise: 'Compare manual vs AutoML approach for a sales forecasting project: 1) List steps in manual ML pipeline, 2) Show how AutoML automates each step, 3) Identify trade-offs between approaches.',
+      solution: 'Manual: Data cleaning → Feature engineering → Algorithm testing → Hyperparameter tuning → Model validation → Deployment (weeks/months). AutoML: Upload data → Define target → Automated pipeline execution → Model ranking → One-click deployment (hours/days). Trade-offs: AutoML saves time but may miss domain-specific insights that manual approach would capture.',
+      reflection: 'How does AutoML change the data science landscape? What role will traditional data scientists play in an AutoML world?',
+      flow: {
+        title: 'AutoML Pipeline',
+        steps: ['Data Upload', 'Automated EDA', 'Feature Engineering', 'Model Selection', 'Hyperparameter Tuning', 'Validation', 'Deployment']
+      },
+      terms: {
+        title: 'AutoML Concepts',
+        items: [
+          { term: 'Automated Feature Engineering', def: 'Automatically creating and selecting relevant features from raw data' },
+          { term: 'Neural Architecture Search', def: 'Automated design of neural network architectures' },
+          { term: 'Hyperparameter Optimization', def: 'Automated tuning of model parameters for optimal performance' },
+          { term: 'Model Ensembling', def: 'Automatically combining multiple models for better predictions' },
+          { term: 'Citizen Data Science', def: 'Non-technical users creating ML solutions with AutoML tools' },
+          { term: 'TPOT', def: 'Tree-based Pipeline Optimization Tool for automated ML pipelines' },
+          { term: 'Auto-sklearn', def: 'Automated machine learning toolkit built on scikit-learn' },
+          { term: 'Multi-objective Optimization', def: 'Optimizing multiple metrics simultaneously (accuracy, speed, interpretability)' }
+        ]
+      },
+      useCases: {
+        title: 'AutoML Applications',
+        items: [
+          { title: 'Business Analytics', desc: 'Non-technical analysts building predictive models for business insights' },
+          { title: 'Healthcare', desc: 'Medical professionals creating diagnostic models without programming' },
+          { title: 'Marketing', desc: 'Campaign optimization and customer segmentation by marketing teams' },
+          { title: 'Finance', desc: 'Risk assessment and fraud detection with minimal technical expertise' },
+          { title: 'Manufacturing', desc: 'Quality control and predictive maintenance models' },
+          { title: 'Education', desc: 'Student performance prediction and personalized learning systems' }
+        ]
+      },
+      sorter: {
+        prompt: 'Categorize AutoML benefits by stakeholder type.',
+        items: [
+          'Faster time to market',
+          'Reduced hiring costs for data scientists',
+          'Domain expertise focus over technical skills',
+          'Standardized model development process',
+          'Lower barrier to AI adoption',
+          'Consistent model performance',
+          'Democratized innovation',
+          'Reduced technical debt'
+        ],
+        solution: {
+          'Business Leaders': [
+            'Faster time to market',
+            'Reduced hiring costs for data scientists',
+            'Lower barrier to AI adoption',
+            'Reduced technical debt'
+          ],
+          'Domain Experts': [
+            'Domain expertise focus over technical skills',
+            'Democratized innovation'
+          ],
+          'Organizations': [
+            'Standardized model development process',
+            'Consistent model performance'
+          ]
+        }
+      },
+      quiz: {
+        question: 'Which aspect of machine learning does AutoML NOT typically automate?',
+        options: ['Feature engineering', 'Model selection', 'Business problem definition', 'Hyperparameter tuning'],
+        answerIndex: 2,
+        hint: 'Think about what requires human judgment and domain knowledge.'
+      }
+    },
+    {
+      title: 'Large Language Models for Data Science',
+      summary: 'Leveraging LLMs to transform how we interact with and analyze data.',
+      story: 'Instead of writing complex SQL queries or Python scripts, imagine asking your data: "Show me customers most likely to churn next month and explain the key factors." LLMs are making this natural language data interaction a reality.',
+      concept: 'Large Language Models (LLMs) are revolutionizing data science by enabling natural language interfaces to data, automated code generation, and intelligent data interpretation. Key applications include text-to-SQL generation, automated exploratory data analysis, code completion and debugging, data storytelling, and multimodal data analysis. LLMs can understand context, generate insights, and communicate findings in human-readable formats, bridging the gap between technical analysis and business understanding.',
+      keywords: ['LLMs', 'natural language processing', 'text-to-SQL', 'code generation', 'data storytelling', 'multimodal analysis'],
+      exercise: 'Design an LLM-powered data analysis system: 1) User asks business questions in natural language, 2) LLM translates to appropriate queries/code, 3) System executes analysis, 4) LLM interprets results and provides insights. Outline the architecture and key components.',
+      solution: 'Architecture: Natural language interface → Intent recognition → Query/code generation → Execution engine → Result interpretation → Insight generation → Narrative explanation. Components: LLM API, database connectors, code execution environment, visualization tools, context management, and feedback loop for improvement.',
+      reflection: 'How will LLMs change the accessibility of data science? What are the risks of automated interpretation and decision-making?',
+      flow: {
+        title: 'LLM Data Science Workflow',
+        steps: ['Natural Language Query', 'Intent Understanding', 'Code Generation', 'Data Analysis', 'Result Interpretation', 'Insight Communication']
+      },
+      terms: {
+        title: 'LLM Data Science Concepts',
+        items: [
+          { term: 'Text-to-SQL', def: 'Converting natural language questions into SQL queries' },
+          { term: 'Code Generation', def: 'LLMs automatically writing data analysis code' },
+          { term: 'Data Storytelling', def: 'LLMs creating narratives to explain data insights' },
+          { term: 'Retrieval-Augmented Generation', def: 'Combining LLMs with external data sources for context' },
+          { term: 'Few-shot Learning', def: 'LLMs learning tasks from just a few examples' },
+          { term: 'Prompt Engineering', def: 'Crafting inputs to get optimal LLM responses' },
+          { term: 'Multimodal Models', def: 'LLMs that process text, images, and other data types' },
+          { term: 'Chain of Thought', def: 'LLMs showing step-by-step reasoning processes' }
+        ]
+      },
+      useCases: {
+        title: 'LLMs in Data Science',
+        items: [
+          { title: 'Business Intelligence', desc: 'Natural language queries for dashboards and reports' },
+          { title: 'Automated EDA', desc: 'LLMs generating exploratory data analysis insights' },
+          { title: 'Code Assistance', desc: 'AI-powered code completion and debugging for data scientists' },
+          { title: 'Data Documentation', desc: 'Automatically generating data dictionary and analysis documentation' },
+          { title: 'Research Analysis', desc: 'Processing and summarizing large volumes of research data' },
+          { title: 'Customer Insights', desc: 'Analyzing customer feedback and survey data at scale' }
+        ]
+      },
+      categorize: {
+        title: 'Classify LLM Data Science Applications',
+        categories: ['Data Access', 'Code Assistance', 'Insight Generation', 'Communication'],
+        items: [
+          'Text-to-SQL generation',
+          'Automated code completion',
+          'Pattern recognition in data',
+          'Executive summary creation',
+          'Natural language database queries',
+          'Bug detection and fixing',
+          'Trend analysis explanation',
+          'Technical documentation generation'
+        ],
+        solution: {
+          'Data Access': [
+            'Text-to-SQL generation',
+            'Natural language database queries'
+          ],
+          'Code Assistance': [
+            'Automated code completion',
+            'Bug detection and fixing'
+          ],
+          'Insight Generation': [
+            'Pattern recognition in data',
+            'Trend analysis explanation'
+          ],
+          'Communication': [
+            'Executive summary creation',
+            'Technical documentation generation'
+          ]
+        }
+      },
+      callouts: [
+        { type: 'info', title: 'Current Capabilities', body: 'LLMs excel at text analysis, code generation, and natural language interfaces but may struggle with complex mathematical reasoning.' },
+        { type: 'warning', title: 'Accuracy Concerns', body: 'LLM-generated code and interpretations should always be validated by experts.' },
+        { type: 'tip', title: 'Best Practices', body: 'Use LLMs as assistants, not replacements. Always verify results and maintain human oversight.' }
+      ],
+      quiz: {
+        question: 'What is the primary advantage of using LLMs in data science?',
+        options: ['Faster computation', 'More accurate models', 'Natural language interface to data', 'Better visualization'],
+        answerIndex: 2,
+        hint: 'Think about how LLMs change the way humans interact with data systems.'
+      }
     }
   ]
 }
